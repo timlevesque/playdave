@@ -30,7 +30,7 @@ app.post('/api/chat', async (req, res) => {
       body: JSON.stringify({
         model: "gpt-4o",
         messages,
-        temperature: 1,
+        temperature: 0,
         max_tokens: 300,
         top_p: 1,
         frequency_penalty: 0,

@@ -49,31 +49,46 @@
     </div>
 
     <script>
-           const ws = new WebSocket(`wss://${window.location.hostname}:443`);
+          const wsUrl = window.location.hostname === 'localhost' 
+            ? `ws://${window.location.hostname}:3000`
+            : `wss://${window.location.hostname}/ws`;
 
+        const ws = new WebSocket(wsUrl);
 
-ws.onopen = () => {
-    console.log('Connected to WebSocket server');
-};
+        ws.onopen = () => {
+            console.log('Connected to WebSocket server');
+        };
 
-ws.onmessage = (event) => {
-    event.data.text().then((text) => {
-        try {
-            const message = JSON.parse(text);
-            if (message.type === 'smiley-clicked') {
+        ws.onmessage = (event) => {
+            event.data.text().then((text) => {
+                try {
+                    const message = JSON.parse(text);
+                    if (message.type === 'smiley-clicked') {
+                        animateSmileyGhost();
+                        console.log('Smiley clicked event received');
+                    }
+                } catch (error) {
+                    console.error('Error parsing message:', error);
+                }
+            });
+        };
+
+        ws.onerror = (error) => {
+            console.error('WebSocket Error:', error);
+        };
+
+        ws.onclose = (event) => {
+            console.log('WebSocket connection closed:', event);
+        };
+
+        document.getElementById("smiley").addEventListener("click", function() {
+            if (ws.readyState === WebSocket.OPEN) {
                 animateSmileyGhost();
-                console.log('worked');
+                ws.send(JSON.stringify({ type: 'smiley-clicked' }));
+            } else {
+                console.error('WebSocket is not open. Ready state: ' + ws.readyState);
             }
-        } catch (error) {
-            console.error('Error parsing message:', error);
-        }
-    });
-};
-
-document.getElementById("smiley").addEventListener("click", function() {
-    animateSmileyGhost();
-    ws.send(JSON.stringify({ type: 'smiley-clicked' }));
-});
+        });
 
         function animateSmileyGhost() {
                 const smileyGhost = document.getElementById("smiley-ghost");

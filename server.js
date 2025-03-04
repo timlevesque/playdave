@@ -1,15 +1,23 @@
-// server.js
 require('dotenv').config();
 const express = require('express');
 const fetch = require('node-fetch');
 const path = require('path');
+const http = require('http');
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({ port: 443, host: '0.0.0.0' });
+const app = express();
+const server = http.createServer(app);
+const PORT = process.env.PORT || 3000;
+
+// WebSocket Server
+const wss = new WebSocket.Server({ server });
 
 wss.on('connection', (ws) => {
+    console.log('WebSocket client connected');
+
     ws.on('message', (message) => {
-        // Broadcast the message to all clients
+        console.log('Received message:', message);
+        // Broadcast the message to all connected clients
         wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN) {
                 client.send(message);
@@ -17,25 +25,18 @@ wss.on('connection', (ws) => {
         });
     });
 
-    ws.send(JSON.stringify({ message: 'Welcome to the WebSocket server!' }));
+    ws.on('close', () => {
+        console.log('WebSocket client disconnected');
+    });
+
+    ws.on('error', (error) => {
+        console.error('WebSocket error:', error);
+    });
 });
-
-console.log('WebSocket server is running on ws://localhost:3030');
-
-
-
-
-
-const app = express();
-const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public'))); // Serve static files
-app.use(express.static('public'));
-
-
-
+app.use(express.static(path.join(__dirname, 'public'))); 
 
 // API Route to handle OpenAI requests
 app.post('/api/chat', async (req, res) => {
@@ -69,6 +70,6 @@ app.post('/api/chat', async (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

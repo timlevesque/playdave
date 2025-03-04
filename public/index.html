@@ -72,7 +72,7 @@ ws.onmessage = (event) => {
 
 document.getElementById("smiley").addEventListener("click", function() {
     animateSmileyGhost();
-    ws.send(JSON.stringify({ type: 'smiley-clicked' }));
+    wss.send(JSON.stringify({ type: 'smiley-clicked' }));
 });
 
         function animateSmileyGhost() {

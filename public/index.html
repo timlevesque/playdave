@@ -37,8 +37,6 @@
     <div id="smiley-container" class="fixed bottom-4 right-4">
        
         <div class="smiley-ghost cursor-pointer text-4xl">😊</div>
-        <div class="smiley-ghost cursor-pointer text-4xl">😊</div>
-        <div class="smiley-ghost cursor-pointer text-4xl">😊</div>
         <div id="smiley" class="cursor-pointer text-4xl absolute">😊</div>
 
     </div>
@@ -152,7 +150,7 @@
                 messages: [
                     {
                         role: "system",
-                        content: `Provide a percentage similarity score (0-100%) based on how close the user's response is to the following statement along with a reason on why you scored that way: ${answer}`
+                        content: `Provide a percentage similarity score (0-100%) based on how close the user's response is to the following statement. If the answer contains a resopnse that would be along with a reason on why you scored that way: ${answer}`
                     },
                     {
                         role: "user",

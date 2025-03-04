@@ -49,7 +49,7 @@
     </div>
 
     <script>
-           const ws = new WebSocket(`wss://${window.location.hostname}:3030`);
+           const ws = new WebSocket(`wss://${window.location.hostname}:443`);
 
 
 ws.onopen = () => {
@@ -72,7 +72,7 @@ ws.onmessage = (event) => {
 
 document.getElementById("smiley").addEventListener("click", function() {
     animateSmileyGhost();
-    wss.send(JSON.stringify({ type: 'smiley-clicked' }));
+    ws.send(JSON.stringify({ type: 'smiley-clicked' }));
 });
 
         function animateSmileyGhost() {

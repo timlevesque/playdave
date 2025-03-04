@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 const path = require('path');
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({ port: 8080 });
+const wss = new WebSocket.Server({ port: 0000 });
 
 wss.on('connection', (ws) => {
     ws.on('message', (message) => {

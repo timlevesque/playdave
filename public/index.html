@@ -6,31 +6,41 @@
     <title>Play Dave Ramsey - Test Your Knowledge</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-     
-        #smiley{
-            transform: translateY(-40px);
+        #smiley-container {
+            transform: translateX(-50px) translateY(-50px);
         }
 
-        #smiley-ghost {
-           
+        .smiley-ghost {
+            position: absolute;
             top: 0;
             left: 0;
+            opacity: 0;
         }
 
-        #smiley-ghost.clicked {
-            opacity:0;
-            transition: transform 0.7s ease-in-out, opacity 0.7s ease-out;
-            transform: translateY(-200px);
-            
+        @keyframes fadeUp {
+            0% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-400px);
+                opacity: 0;
+            }
+        }
+
+        .smiley-ghost.animate {
+            animation: fadeUp 0.8s ease-out;
         }
     </style>
 </head>
 <body class="bg-white p-8 flex flex-col items-center justify-center min-h-screen">
     <div id="smiley-container" class="fixed bottom-4 right-4">
        
-       
-        <div id="smiley-ghost" class="cursor-pointer  text-4xl">😊</div>
+        <div class="smiley-ghost cursor-pointer text-4xl">😊</div>
+        <div class="smiley-ghost cursor-pointer text-4xl">😊</div>
+        <div class="smiley-ghost cursor-pointer text-4xl">😊</div>
         <div id="smiley" class="cursor-pointer text-4xl absolute">😊</div>
+
     </div>
     <div class=" w-full max-w-xl text-center">
         <h1 class="text-6xl font-bold text-gray-800 mb-2">Play Dave Ramsey</h1>
@@ -90,15 +100,16 @@
             }
         });
 
+        let currentGhostIndex = 0;
+        const smileyGhosts = document.querySelectorAll('.smiley-ghost');
+
         function animateSmileyGhost() {
-                const smileyGhost = document.getElementById("smiley-ghost");
-                
-                smileyGhost.classList.add("clicked");
-                setTimeout(() => {
-                    smileyGhost.classList.remove("clicked");
-                    
-                }, 1000); // Match the duration of the CSS transition
-            };
+            const smileyGhost = smileyGhosts[currentGhostIndex];
+            smileyGhost.classList.remove("animate");
+            void smileyGhost.offsetWidth; // Trigger reflow
+            smileyGhost.classList.add("animate");
+            currentGhostIndex = (currentGhostIndex + 1) % smileyGhosts.length;
+        }
 
         let latestScore = "";
         let hasAttempted = localStorage.getItem("hasAttempted") === "true";

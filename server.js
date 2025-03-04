@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 const path = require('path');
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({ port: 0000 });
+const wss = new WebSocket.Server({ port: 3030 });
 
 wss.on('connection', (ws) => {
     ws.on('message', (message) => {
@@ -20,7 +20,7 @@ wss.on('connection', (ws) => {
     ws.send(JSON.stringify({ message: 'Welcome to the WebSocket server!' }));
 });
 
-console.log('WebSocket server is running on ws://localhost:8080');
+console.log('WebSocket server is running on ws://localhost:3030');
 
 
 const app = express();

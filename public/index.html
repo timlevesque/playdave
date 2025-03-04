@@ -5,10 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play Dave Ramsey - Test Your Knowledge</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+     
+        #smiley{
+            transform: translateY(-40px);
+        }
+
+        #smiley-ghost {
+           
+            top: 0;
+            left: 0;
+        }
+
+        #smiley-ghost.clicked {
+            opacity:0;
+            transition: transform 0.7s ease-in-out, opacity 0.7s ease-out;
+            transform: translateY(-200px);
+            
+        }
+    </style>
 </head>
-<body class="bg-white flex flex-col items-center justify-center min-h-screen">
-    <div class="p-8 w-full max-w-3xl text-center">
-        <h1 class="text-6xl font-bold text-gray-800 mb-2">What Would Dave Say?</h1>
+<body class="bg-white p-8 flex flex-col items-center justify-center min-h-screen">
+    <div id="smiley-container" class="fixed bottom-4 right-4">
+       
+       
+        <div id="smiley-ghost" class="cursor-pointer  text-4xl">😊</div>
+        <div id="smiley" class="cursor-pointer text-4xl absolute">😊</div>
+    </div>
+    <div class=" w-full max-w-xl text-center">
+        <h1 class="text-6xl font-bold text-gray-800 mb-2">Play Dave Ramsey</h1>
         <h2 class="text-4xl font-medium text-gray-600 mb-4">Test Your Knowledge</h2>
         <p id="question" class="text-lg text-gray-700 mb-6">
             "My husband and I are on Baby Step 2 with $30,000 left in student loans. We make $80,000 a year and have about $1,000 in our emergency fund. We’ve been throwing an extra $1,000 a month at our debt. The issue is, my car just died, and repairs would cost more than it’s worth. I need reliable transportation for work, and public transit isn’t an option. Should we pause our debt snowball to save for a used car in the $5,000–$7,000 range, or is there a better way to handle this?"
@@ -24,6 +49,41 @@
     </div>
 
     <script>
+           const ws = new WebSocket('ws://localhost:8080');
+
+ws.onopen = () => {
+    console.log('Connected to WebSocket server');
+};
+
+ws.onmessage = (event) => {
+    event.data.text().then((text) => {
+        try {
+            const message = JSON.parse(text);
+            if (message.type === 'smiley-clicked') {
+                animateSmileyGhost();
+                console.log('worked');
+            }
+        } catch (error) {
+            console.error('Error parsing message:', error);
+        }
+    });
+};
+
+document.getElementById("smiley").addEventListener("click", function() {
+    animateSmileyGhost();
+    ws.send(JSON.stringify({ type: 'smiley-clicked' }));
+});
+
+        function animateSmileyGhost() {
+                const smileyGhost = document.getElementById("smiley-ghost");
+                
+                smileyGhost.classList.add("clicked");
+                setTimeout(() => {
+                    smileyGhost.classList.remove("clicked");
+                    
+                }, 1000); // Match the duration of the CSS transition
+            };
+
         let latestScore = "";
         let hasAttempted = localStorage.getItem("hasAttempted") === "true";
 
@@ -44,6 +104,8 @@
                     document.getElementById("reason").innerHTML = storedReason;
                     document.getElementById("reason").style.display = "block";
                 }
+
+                
             }
         };
 
@@ -57,7 +119,7 @@
             localStorage.setItem("hasAttempted", "true");
 
             const userText = document.getElementById("userInput").value;
-            const answer = "Dave: about the car—you’re right not to take on more debt. Since you’re in Baby Step 2, this is exactly what your emergency fund is for. Pause the extra debt payments for now and focus on getting a cheap, reliable car with cash. You don’t need anything fancy—aim for something in the $3,000–$5,000 range if you can. Once you’ve got transportation sorted, jump right back into your debt snowball and keep the momentum going. You’re on the right track—stay focused, and you’ll be debt-free before you know it.";
+            const answer = "Dave: Hey, thanks for calling. First off, you and your husband are doing a great job—paying off $15,000 already shows real commitment. Now, about the car—you’re right not to take on more debt. Since you’re in Baby Step 2, this is exactly what your emergency fund is for. Pause the extra debt payments for now and focus on getting a cheap, reliable car with cash. You don’t need anything fancy—aim for something in the $3,000–$5,000 range if you can. Once you’ve got transportation sorted, jump right back into your debt snowball and keep the momentum going. You’re on the right track—stay focused, and you’ll be debt-free before you know it.";
 
             const requestData = {
                 messages: [

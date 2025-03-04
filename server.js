@@ -3,6 +3,25 @@ require('dotenv').config();
 const express = require('express');
 const fetch = require('node-fetch');
 const path = require('path');
+const WebSocket = require('ws');
+
+const wss = new WebSocket.Server({ port: 8080 });
+
+wss.on('connection', (ws) => {
+    ws.on('message', (message) => {
+        // Broadcast the message to all clients
+        wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(message);
+            }
+        });
+    });
+
+    ws.send(JSON.stringify({ message: 'Welcome to the WebSocket server!' }));
+});
+
+console.log('WebSocket server is running on ws://localhost:8080');
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -30,7 +49,7 @@ app.post('/api/chat', async (req, res) => {
       body: JSON.stringify({
         model: "gpt-4o",
         messages,
-        temperature: 0,
+        temperature: 1,
         max_tokens: 300,
         top_p: 1,
         frequency_penalty: 0,

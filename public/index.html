@@ -87,6 +87,8 @@
 
         let ws;
         let postCounter = 0;
+        // Generate a unique client ID
+        const clientId = Date.now() + "-" + Math.random().toString(36).substr(2, 9);
 
         function connectWebSocket() {
             ws = new WebSocket(wsUrl);
@@ -105,6 +107,11 @@
                             const newPostId = "post-" + postCounter;
                             addPostToUI(message.username, message.step, message.message, newPostId);
                         } else if (message.type === "emoji-clicked") {
+                            // Skip animation if we're the source of the click
+                            if (message.sourceClientId === clientId) {
+                                return;
+                            }
+                            
                             // Find all posts to look for the matching one
                             const allPosts = document.querySelectorAll('[data-post-id]');
                             let targetPost = null;
@@ -171,35 +178,39 @@
         });
 
         // Function to Add a New Post to the UI
-        function addPostToUI(username, step, message, postId) {
-            const postContainer = document.getElementById("message");
-
-            const postHTML = `
-                <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-5 mt-3" data-post-id="${postId}">
-                    <div class="flex items-center">
-                        <div class="w-8 h-8 bg-blue-500 rounded-full mr-3"></div>
-                        <div>
-                            <p class="font-semibold text-sm text-gray-800">${username}</p>
-                            <p class="text-xs text-gray-500">${step}</p>
-                        </div>
-                    </div>
-                    <div class="pt-3">
-                        <p class="text-sm text-gray-700">"${message}"</p>
-                    </div>
-                    <div class="inline-flex justify-between items-center bg-white mt-3">
-                        <div class="flex space-x-3">
-                            <div class="emoji-trigger cursor-pointer text-xl" data-emoji="👍">👍</div>
-                            <div class="emoji-trigger cursor-pointer text-xl" data-emoji="❤️">❤️</div>
-                            <div class="emoji-trigger cursor-pointer text-xl" data-emoji="😂">😂</div>
-                            <div class="emoji-trigger cursor-pointer text-xl" data-emoji="😮">😮</div>
-                            <div class="emoji-trigger cursor-pointer text-xl" data-emoji="🤔">🤔</div>
-                        </div>
-                    </div>
+        // Function to Add a New Post to the UI
+function addPostToUI(username, step, message, postId) {
+    // Get the social widget container instead of the first message
+    const socialWidget = document.getElementById("social-widget");
+    
+    const postHTML = `
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-5 mt-3" data-post-id="${postId}">
+            <div class="flex items-center">
+                <div class="w-8 h-8 bg-blue-500 rounded-full mr-3"></div>
+                <div>
+                    <p class="font-semibold text-sm text-gray-800">${username}</p>
+                    <p class="text-xs text-gray-500">${step}</p>
                 </div>
-            `;
+            </div>
+            <div class="pt-3">
+                <p class="text-sm text-gray-700">"${message}"</p>
+            </div>
+            <div class="inline-flex justify-between items-center bg-white mt-3">
+                <div class="flex space-x-3">
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="👍">👍</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="❤️">❤️</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="😂">😂</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="😮">😮</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="🤔">🤔</div>
+                </div>
+            </div>
+        </div>
+    `;
 
-            postContainer.insertAdjacentHTML("afterend", postHTML);
-        }
+    // Append the new post at the end of the social widget but before the input form
+    const inputForm = document.querySelector(".flex.mt-3");
+    socialWidget.insertBefore(document.createRange().createContextualFragment(postHTML), inputForm);
+}
 
         function animateEmojiGhost(emoji, event) {
             const emojiGhostContainer = document.createElement("div");
@@ -255,13 +266,14 @@
                         type: "emoji-clicked",
                         emoji: emojiChar,
                         postIndex: postIndex,
-                        emojiIndex: emojiIndex
+                        emojiIndex: emojiIndex,
+                        sourceClientId: clientId // Use clientId instead of boolean flag
                     };
                     ws.send(JSON.stringify(emojiMessage));
+                    
+                    // Animate locally for the user who clicked
+                    animateEmojiGhost(emojiChar, event);
                 }
-
-                // Local animation
-                animateEmojiGhost(emojiChar, event);
             }
         });
 

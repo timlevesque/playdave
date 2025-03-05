@@ -67,33 +67,45 @@
             ? `ws://${window.location.hostname}:3000`
             : `wss://${window.location.hostname}/ws`;
 
-        const ws = new WebSocket(wsUrl);
+        let ws;
 
-        ws.onopen = () => {
-            console.log('Connected to WebSocket server');
-        };
+        function connectWebSocket() {
+            ws = new WebSocket(wsUrl);
 
-        ws.onmessage = (event) => {
-            event.data.text().then((text) => {
-                try {
-                    const message = JSON.parse(text);
-                    if (message.type === 'smiley-clicked') {
-                        animateSmileyGhost();
-                        console.log('Smiley clicked event received');
+            ws.onopen = () => {
+                console.log('Connected to WebSocket server');
+            };
+
+            ws.onmessage = (event) => {
+                event.data.text().then((text) => {
+                    try {
+                        const message = JSON.parse(text);
+                        if (message.type === 'smiley-clicked') {
+                            animateSmileyGhost();
+                            console.log('Smiley clicked event received');
+                        }
+                    } catch (error) {
+                        console.error('Error parsing message:', error);
                     }
-                } catch (error) {
-                    console.error('Error parsing message:', error);
-                }
-            });
-        };
+                });
+            };
 
-        ws.onerror = (error) => {
-            console.error('WebSocket Error:', error);
-        };
+            ws.onerror = (error) => {
+                console.error('WebSocket Error:', error);
+            };
 
-        ws.onclose = (event) => {
-            console.log('WebSocket connection closed:', event);
-        };
+            ws.onclose = (event) => {
+                console.log('WebSocket connection closed:', event);
+            };
+        }
+
+        connectWebSocket();
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible' && ws.readyState !== WebSocket.OPEN) {
+                connectWebSocket();
+            }
+        });
 
         document.getElementById("smiley").addEventListener("click", function() {
             if (ws.readyState === WebSocket.OPEN) {

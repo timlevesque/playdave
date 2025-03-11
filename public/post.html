@@ -35,9 +35,14 @@
         <!-- Initial Example Post -->
         <div id="message" class="bg-white rounded-xl shadow-lg border border-gray-200 p-5" data-post-id="default-post">
             <div class="flex items-center">
+                <div class="w-8 h-8 bg-blue-500 rounded-full mr-3"></div>
+                <div>
+                    <p class="font-semibold text-sm text-gray-800">Javier Garcia</p>
+                    <p class="text-xs text-gray-500">Baby Step 2</p>
+                </div>
             </div>
             <div class="pt-3 pb-1">
-                <p class="text-gray-700">"How do you find Will Smith in a snowstorm?  You look for fresh prints."</p>
+                <p class="text-gray-700">"Just paid off off my second credit card! 3 more to go."</p>
             </div>
             <!-- Emoji Reaction Bar -->
             <div class="inline-flex justify-between items-center bg-white mt-3">
@@ -46,8 +51,7 @@
                     <div class="emoji-trigger cursor-pointer text-xl" data-emoji="❤️">❤️</div>
                     <div class="emoji-trigger cursor-pointer text-xl" data-emoji="😂">😂</div>
                     <div class="emoji-trigger cursor-pointer text-xl" data-emoji="😮">😮</div>
-                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="🤔">🤔</div>
-                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="👎">👎</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="👏">👏</div>
                     <div class="emoji-trigger cursor-pointer text-xl" data-emoji="🔥">🔥</div>
                 </div>
             </div>
@@ -55,7 +59,7 @@
 
         <!-- User Input for Posting Messages -->
         <div class="flex mt-3">
-            <input id="postInput" class="w-full p-2 text-sm border border-gray-300 rounded-lg mr-3" placeholder="Share your thought...">
+            <input id="postInput" class="w-full p-2 text-sm border border-gray-300 rounded-lg mr-3" placeholder="Share a recent money win...">
             <button id="postButton" class="text-sm bg-blue-500 text-white px-3 py-1 rounded-lg">Post</button>
         </div>
     </div>
@@ -147,6 +151,8 @@
 
             const messageData = {
                 type: "user-post",
+                username: "You",
+                step: "Baby Step 2",
                 message: postInput
             };
 
@@ -167,6 +173,12 @@ function addPostToUI(username, step, message, postId) {
     const postHTML = `
         <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-5 mt-3" data-post-id="${postId}">
             <div class="flex items-center">
+                <div class="w-8 h-8 bg-blue-500 rounded-full mr-3"></div>
+                <div>
+                    <p class="font-semibold text-sm text-gray-800">${username}</p>
+                    <p class="text-xs text-gray-500">${step}</p>
+                </div>
+            </div>
             </div>
             <div class="pt-3 pb-1">
                 <p class="text-gray-700">"${message}"</p>

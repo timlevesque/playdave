@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Dave Ramsey - Test Your Knowledge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+       .emoji-ghost {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        @keyframes fadeUp {
+            0% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-600px);
+                opacity: 0;
+            }
+        }
+
+        .emoji-ghost.animate {
+            animation: fadeUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-black p-8 flex flex-col items-center justify-center min-h-screen">
+    <!-- Social Widget Container -->
+    <div id="social-widget" class="fixed bottom-4 max-w-[700px] p-5">
+        <!-- Initial Example Post -->
+        <div id="message" class="bg-white rounded-xl shadow-lg border border-gray-200 p-5" data-post-id="default-post">
+            <div class="flex items-center">
+            </div>
+            <div class="pt-3 pb-1">
+                <p class="text-gray-700">"How do you find Will Smith in a snowstorm?  You look for fresh prints."</p>
+            </div>
+            <!-- Emoji Reaction Bar -->
+            <div class="inline-flex justify-between items-center bg-white mt-3">
+                <div class="flex space-x-3">
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="👍">👍</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="❤️">❤️</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="😂">😂</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="😮">😮</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="🤔">🤔</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="👎">👎</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="🔥">🔥</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Input for Posting Messages -->
+        <div class="flex mt-3">
+            <input id="postInput" class="w-full p-2 text-sm border border-gray-300 rounded-lg mr-3" placeholder="Share your thought...">
+            <button id="postButton" class="text-sm bg-blue-500 text-white px-3 py-1 rounded-lg">Post</button>
+        </div>
+    </div>
+
+   
+
+    <script>
+        // WebSocket Connection
+        const wsUrl = window.location.hostname === 'localhost' 
+            ? `ws://${window.location.hostname}:3000`
+            : `wss://${window.location.hostname}/ws`;
+
+        let ws;
+        let postCounter = 0;
+        // Generate a unique client ID
+        const clientId = Date.now() + "-" + Math.random().toString(36).substr(2, 9);
+
+        function connectWebSocket() {
+            ws = new WebSocket(wsUrl);
+
+            ws.onopen = () => {
+                console.log("Connected to WebSocket server");
+            };
+
+            ws.onmessage = (event) => {
+                event.data.text().then((text) => {
+                    try {
+                        const message = JSON.parse(text);
+                        
+                        if (message.type === "user-post") {
+                            postCounter++;
+                            const newPostId = "post-" + postCounter;
+                            addPostToUI(message.username, message.step, message.message, newPostId);
+                        } else if (message.type === "emoji-clicked") {
+                            // Skip animation if we're the source of the click
+                            if (message.sourceClientId === clientId) {
+                                return;
+                            }
+                            
+                            // Find all posts to look for the matching one
+                            const allPosts = document.querySelectorAll('[data-post-id]');
+                            let targetPost = null;
+                            
+                            // Search for the post with matching index
+                            for (let i = 0; i < allPosts.length; i++) {
+                                if (i === message.postIndex) {
+                                    targetPost = allPosts[i];
+                                    break;
+                                }
+                            }
+                            
+                            if (targetPost) {
+                                const emojis = targetPost.querySelectorAll(".emoji-trigger");
+                                if (emojis.length > message.emojiIndex) {
+                                    const targetEmoji = emojis[message.emojiIndex];
+                                    // Create event-like object from the found emoji
+                                    const fakeEvent = { target: targetEmoji };
+                                    animateEmojiGhost(message.emoji, fakeEvent);
+                                }
+                            }
+                        }
+                    } catch (error) {
+                        console.error("Error parsing message:", error);
+                    }
+                });
+            };
+
+            ws.onerror = (error) => {
+                console.error("WebSocket Error:", error);
+            };
+
+            ws.onclose = (event) => {
+                console.log("WebSocket connection closed:", event);
+            };
+        }
+
+        connectWebSocket();
+
+        document.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "visible" && ws.readyState !== WebSocket.OPEN) {
+                connectWebSocket();
+            }
+        });
+
+        // Function to Send User Post
+        document.getElementById("postButton").addEventListener("click", function () {
+            const postInput = document.getElementById("postInput").value.trim();
+            if (postInput === "") return;
+
+            const messageData = {
+                type: "user-post",
+                message: postInput
+            };
+
+            if (ws.readyState === WebSocket.OPEN) {
+                ws.send(JSON.stringify(messageData));
+                document.getElementById("postInput").value = "";
+            } else {
+                console.error("WebSocket is not open.");
+            }
+        });
+
+        // Function to Add a New Post to the UI
+        // Function to Add a New Post to the UI
+function addPostToUI(username, step, message, postId) {
+    // Get the social widget container instead of the first message
+    const socialWidget = document.getElementById("social-widget");
+    
+    const postHTML = `
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-5 mt-3" data-post-id="${postId}">
+            <div class="flex items-center">
+            </div>
+            <div class="pt-3 pb-1">
+                <p class="text-gray-700">"${message}"</p>
+            </div>
+            <div class="inline-flex justify-between items-center bg-white mt-3">
+                <div class="flex space-x-3">
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="👍">👍</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="❤️">❤️</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="😂">😂</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="😮">😮</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="🤔">🤔</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="👎">👎</div>
+                    <div class="emoji-trigger cursor-pointer text-xl" data-emoji="🔥">🔥</div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // Append the new post at the end of the social widget but before the input form
+    const inputForm = document.querySelector(".flex.mt-3");
+    socialWidget.insertBefore(document.createRange().createContextualFragment(postHTML), inputForm);
+}
+
+        function animateEmojiGhost(emoji, event) {
+            const emojiGhostContainer = document.createElement("div");
+            emojiGhostContainer.className = "emoji-ghost text-4xl";
+            emojiGhostContainer.textContent = emoji;
+            
+            // Get the clicked emoji's position
+            const rect = event.target.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top;
+
+            // Position the floating emoji
+            emojiGhostContainer.style.position = "absolute";
+            emojiGhostContainer.style.left = `${x}px`;
+            emojiGhostContainer.style.top = `${y}px`;
+            emojiGhostContainer.style.opacity = "1";
+
+            document.body.appendChild(emojiGhostContainer);
+
+            // Force reflow to trigger animation
+            void emojiGhostContainer.offsetWidth;
+            emojiGhostContainer.classList.add("animate");
+
+            // Remove emoji after animation completes
+            emojiGhostContainer.addEventListener("animationend", () => {
+                emojiGhostContainer.remove();
+            });
+        }
+
+        // Use event delegation to handle clicks on dynamically added emojis
+        document.getElementById("social-widget").addEventListener("click", function (event) {
+            if (event.target.classList.contains("emoji-trigger")) {
+                const emojiChar = event.target.getAttribute("data-emoji");
+                
+                // Find which emoji was clicked
+                const post = event.target.closest("[data-post-id]");
+                const allEmojis = post.querySelectorAll(".emoji-trigger");
+                const emojiIndex = Array.from(allEmojis).indexOf(event.target);
+                
+                // Find the post index
+                const allPosts = document.querySelectorAll('[data-post-id]');
+                let postIndex = -1;
+                for (let i = 0; i < allPosts.length; i++) {
+                    if (allPosts[i] === post) {
+                        postIndex = i;
+                        break;
+                    }
+                }
+                
+                // Send emoji click event through WebSocket
+                if (ws.readyState === WebSocket.OPEN && postIndex !== -1) {
+                    const emojiMessage = {
+                        type: "emoji-clicked",
+                        emoji: emojiChar,
+                        postIndex: postIndex,
+                        emojiIndex: emojiIndex,
+                        sourceClientId: clientId // Use clientId instead of boolean flag
+                    };
+                    ws.send(JSON.stringify(emojiMessage));
+                    
+                    // Animate locally for the user who clicked
+                    animateEmojiGhost(emojiChar, event);
+                }
+            }
+        });        
+    </script>
+</body>
+</html>

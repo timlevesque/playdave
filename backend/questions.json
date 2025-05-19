@@ -12,7 +12,7 @@
       "1": "Suggests buying the $30,000 car is fine or doesn’t provide meaningful financial advice.",
       "0": "No answer or completely irrelevant response."
     },
-    "date": "2025-05-16"
+    "date": "2025-05-19"
   },
   {
     "question_id": "q002",
@@ -27,7 +27,7 @@
       "1": "Says buying is okay now or focuses only on short-term cost benefits.",
       "0": "No answer or off-topic."
     },
-    "date": "2025-05-17"
+    "date": "2025-05-20"
   },
   {
     "question_id": "q003",
@@ -42,7 +42,7 @@
       "1": "Says he should just switch jobs again without any internal reflection.",
       "0": "Irrelevant or no advice."
     },
-    "date": "2025-05-18"
+    "date": "2025-05-21"
   },
   {
     "question_id": "q004",
@@ -57,7 +57,7 @@
       "1": "Opposes selling and ignores the debt burden and new baby.",
       "0": "No answer or unrelated advice."
     },
-    "date": "2025-05-20"
+    "date": "2025-05-22"
   },
   {
     "question_id": "q005",
@@ -72,7 +72,7 @@
       "1": "Emphasizes keeping all money with no regard for relationships or kids.",
       "0": "Off-topic or no answer."
     },
-    "date": "2025-05-19"
+    "date": "2025-05-23"
   },
   {
     "question_id": "q006",
@@ -87,6 +87,6 @@
       "1": "Recommends buying based only on rate or urgency, no mention of financial readiness.",
       "0": "Irrelevant or no answer."
     },
-    "date": "2025-05-21"
+    "date": "2025-05-24"
   }
 ]

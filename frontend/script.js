@@ -16,15 +16,25 @@ function checkIfUserAlreadyAnswered() {
     const fullName = localStorage.getItem('fullName');
     const questionId = localStorage.getItem('questionId');
     const submitButton = document.querySelector('button[onclick="submitAnswer()"]');
+    const inputFields = document.querySelector('.space-y-4');
+    const resultContainer = document.getElementById('result-container');
 
     if (!fullName || !questionId || !submitButton) return;
 
     const submissionKey = `answered-${questionId}-${fullName}`;
     
     if (localStorage.getItem(submissionKey)) {
-        submitButton.disabled = true;
-        submitButton.classList.add('opacity-50', 'cursor-not-allowed');
-        submitButton.innerText = "Answer Submitted";
+        // Hide the input fields section instead of just disabling the button
+        inputFields.classList.add('hidden');
+        
+        // Show the result container with score
+        resultContainer.classList.remove('hidden');
+        
+        // Get saved score from localStorage if available
+        const savedScore = localStorage.getItem(`score-${questionId}-${fullName}`);
+        if (savedScore) {
+            document.getElementById('score').innerText = savedScore;
+        }
         
         // Check if we have a submission ID stored to load explanation
         const submissionId = localStorage.getItem(`submissionId-${questionId}-${fullName}`);
@@ -32,15 +42,18 @@ function checkIfUserAlreadyAnswered() {
             loadExplanation(submissionId);
         }
     } else {
+        // Show the input fields if not answered
+        inputFields.classList.remove('hidden');
         submitButton.disabled = false;
         submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
         submitButton.innerText = "Submit";
-        document.getElementById('result-container').classList.add('hidden');
+        resultContainer.classList.add('hidden');
     }
 }
 
 function submitAnswer() {
-    const nameInput = document.getElementById('username').value.trim();
+    const usernameInput = document.getElementById('username');
+    const nameInput = usernameInput.value.trim();
     const nameParts = nameInput.split(' ');
     const firstName = nameParts[0] || '';
     const lastName = nameParts[1] || '';
@@ -67,7 +80,15 @@ function submitAnswer() {
     // Show loading state
     document.getElementById('score').innerText = 'Evaluating your answer...';
     document.getElementById('result-container').classList.remove('hidden');
-    document.getElementById('explanation').innerHTML = '<p class="text-center text-gray-500">Analyzing your answer...</p>';
+    document.getElementById('explanation').innerHTML = `
+        <button id="toggle-explanation-btn" onclick="toggleExplanation()" 
+          class="w-full flex justify-center items-center py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+            Show Status <span class="ml-1">▼</span>
+        </button>
+        <div id="explanation-content" class="mt-3 hidden">
+            <p class="text-center text-gray-500">Analyzing your answer...</p>
+        </div>
+    `;
 
     fetch('http://localhost:5000/api/game/submit', {
         method: 'POST',
@@ -82,7 +103,11 @@ function submitAnswer() {
     })
     .then(data => {
         console.log("Submission response:", data);
-        document.getElementById('score').innerText = 'Score: ' + data.score + ' Dave Bucks';
+        const scoreText = 'Score: ' + data.score + ' Dave Bucks';
+        document.getElementById('score').innerText = scoreText;
+        
+        // Store the score in localStorage for persistence
+        localStorage.setItem(`score-${questionId}-${fullName}`, scoreText);
 
         // Store the submission ID for loading explanations later
         if (data.submission_id) {
@@ -90,15 +115,25 @@ function submitAnswer() {
             localStorage.setItem(`submissionId-${questionId}-${fullName}`, data.submission_id);
             
             // Add a small delay before loading explanation to give backend time to process
-            document.getElementById('explanation').innerHTML = 
-                '<p class="text-center text-gray-500">Generating your explanation...</p>';
+            document.getElementById('explanation').innerHTML = `
+                <button id="toggle-explanation-btn" onclick="toggleExplanation()" 
+                  class="w-full flex justify-center items-center py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+                    Show Explanation <span class="ml-1">▼</span>
+                </button>
+                <div id="explanation-content" class="mt-3 hidden">
+                    <p class="text-center text-gray-500">Generating your explanation...</p>
+                </div>
+            `;
                 
             // First attempt after a short delay
             setTimeout(() => loadExplanation(data.submission_id), 2000);
             
             // Set up auto-retry if the first attempt fails
             const retryInterval = setInterval(() => {
-                const explanationText = document.getElementById('explanation').innerText;
+                const explanationContent = document.getElementById('explanation-content');
+                if (!explanationContent) return; // Safety check
+                
+                const explanationText = explanationContent.innerText;
                 if (explanationText.includes('still being generated') || 
                     explanationText.includes('Failed to load')) {
                     console.log('Retrying explanation fetch...');
@@ -113,8 +148,15 @@ function submitAnswer() {
             
         } else {
             console.error("No submission_id received from server");
-            document.getElementById('explanation').innerHTML = 
-                '<p class="text-center text-red-500">Could not load explanation: No submission ID received.</p>';
+            document.getElementById('explanation').innerHTML = `
+                <button id="toggle-explanation-btn" onclick="toggleExplanation()" 
+                  class="w-full flex justify-center items-center py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+                    Show Error <span class="ml-1">▼</span>
+                </button>
+                <div id="explanation-content" class="mt-3 hidden">
+                    <p class="text-center text-red-500">Could not load explanation: No submission ID received.</p>
+                </div>
+            `;
         }
 
         // Lock future submissions for this question
@@ -128,10 +170,46 @@ function submitAnswer() {
     });
 }
 
+function toggleExplanation() {
+    const explanationContent = document.getElementById('explanation-content');
+    const toggleButton = document.getElementById('toggle-explanation-btn');
+    
+    if (explanationContent.classList.contains('hidden')) {
+        // Show explanation
+        explanationContent.classList.remove('hidden');
+        toggleButton.innerHTML = 'Hide Explanation <span class="ml-1">▲</span>';
+    } else {
+        // Hide explanation
+        explanationContent.classList.add('hidden');
+        toggleButton.innerHTML = 'Show Explanation <span class="ml-1">▼</span>';
+    }
+}
+
 async function loadExplanation(submissionId) {
     try {
         document.getElementById('result-container').classList.remove('hidden');
-        document.getElementById('explanation').innerHTML = '<p class="text-center text-gray-500">Loading explanation...</p>';
+        
+        // Create toggle button and explanation content container if they don't exist
+        let explanationSection = document.getElementById('explanation');
+        let toggleButton = document.getElementById('toggle-explanation-btn');
+        let explanationContent = document.getElementById('explanation-content');
+        
+        // If this is the first time loading, set up the structure
+        if (!toggleButton) {
+            explanationSection.innerHTML = `
+                <button id="toggle-explanation-btn" onclick="toggleExplanation()" 
+                  class="w-full flex justify-center items-center py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors">
+                    Show Explanation <span class="ml-1">▼</span>
+                </button>
+                <div id="explanation-content" class="mt-3 hidden">
+                    <p class="text-center text-gray-500">Loading explanation...</p>
+                </div>
+            `;
+            explanationContent = document.getElementById('explanation-content');
+        } else {
+            // Just update the loading state
+            explanationContent.innerHTML = '<p class="text-center text-gray-500">Loading explanation...</p>';
+        }
         
         console.log(`Fetching explanation for submission ID: ${submissionId}`);
         
@@ -160,14 +238,16 @@ async function loadExplanation(submissionId) {
                 .map(paragraph => `<p class="mb-3">${paragraph}</p>`)
                 .join('');
                 
-            document.getElementById('explanation').innerHTML = formattedExplanation;
+            explanationContent.innerHTML = formattedExplanation;
         } else {
-            document.getElementById('explanation').innerHTML = '<p class="text-center text-gray-500">No explanation available.</p>';
+            explanationContent.innerHTML = '<p class="text-center text-gray-500">No explanation available.</p>';
         }
     } catch (err) {
         console.error("Failed to load explanation:", err);
+        const explanationContent = document.getElementById('explanation-content');
+        
         if (err.name === 'AbortError') {
-            document.getElementById('explanation').innerHTML = `
+            explanationContent.innerHTML = `
                 <p class="text-center text-amber-600 mb-2">The explanation is still being generated.</p>
                 <p class="text-center text-gray-600">This may take up to 30 seconds to complete.</p>
                 <button onclick="loadExplanation('${submissionId}')" class="mt-2 mx-auto block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
@@ -175,7 +255,7 @@ async function loadExplanation(submissionId) {
                 </button>
             `;
         } else {
-            document.getElementById('explanation').innerHTML = `
+            explanationContent.innerHTML = `
                 <p class="text-center text-red-500 mb-2">Failed to load explanation: ${err.message}</p>
                 <button onclick="loadExplanation('${submissionId}')" class="mt-2 mx-auto block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
                     Try Again
@@ -250,20 +330,38 @@ async function loadLeaderboard() {
 }
 
 function signOut() {
+    const questionId = localStorage.getItem('questionId');
+    const fullName = localStorage.getItem('fullName');
+    
+    if (questionId && fullName) {
+        // Clean up all user-specific data
+        localStorage.removeItem(`answered-${questionId}-${fullName}`);
+        localStorage.removeItem(`submissionId-${questionId}-${fullName}`);
+        localStorage.removeItem(`score-${questionId}-${fullName}`);
+    }
+    
     localStorage.removeItem('fullName');
     document.getElementById('username').value = '';
+    document.getElementById('username').classList.remove('hidden');
     document.getElementById('user-display').textContent = '';
     document.getElementById('sign-out-btn').classList.add('hidden');
     document.getElementById('result-container').classList.add('hidden');
+    
+    // Show input fields when signing out
+    document.querySelector('.space-y-4').classList.remove('hidden');
+    
     loadLeaderboard(); // Refresh leaderboard without highlight
 }
 
 
-// Auto-load name if saved
 document.addEventListener('DOMContentLoaded', () => {
     const savedName = localStorage.getItem('fullName');
+    const usernameInput = document.getElementById('username');
+    
     if (savedName) {
-        document.getElementById('username').value = savedName;
+        // If name is already stored, hide the input field and set its value
+        usernameInput.value = savedName;
+        usernameInput.classList.add('hidden');
     }
 
     loadQuestion();

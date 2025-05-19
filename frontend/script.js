@@ -1,6 +1,6 @@
 async function loadQuestion() {
     try {
-        const res = await fetch('http://localhost:5000/api/game/question');
+        const res = await fetch('/api/game/question');
         const data = await res.json();
 
         document.getElementById('prompt').innerText = data.prompt;
@@ -90,7 +90,7 @@ function submitAnswer() {
         </div>
     `;
 
-    fetch('http://localhost:5000/api/game/submit', {
+    fetch('/api/game/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: fullName, userAnswer })
@@ -217,7 +217,7 @@ async function loadExplanation(submissionId) {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
         
-        const res = await fetch(`http://localhost:5000/api/game/explanation/${submissionId}`, {
+        const res = await fetch(`/api/game/explanation/${submissionId}`, {
             signal: controller.signal
         }).finally(() => clearTimeout(timeoutId));
         
@@ -281,7 +281,7 @@ async function loadLeaderboard() {
     }
 
     try {
-        const res = await fetch('http://localhost:5000/api/game/leaderboard');
+        const res = await fetch('/api/game/leaderboard');
         const data = await res.json();
         const board = document.getElementById('leaderboard');
         board.innerHTML = '';

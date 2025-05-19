@@ -6,22 +6,29 @@ const { Configuration, OpenAI } = require('openai');
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-
 function getTodayDate() {
     return new Date().toISOString().split('T')[0];
 }
 
-// Load and parse questions
-const questions = JSON.parse(fs.readFileSync(path.join(__dirname, '../questions.json')));
+function getQuestions() {
+    // Read and parse questions fresh each time
+    return JSON.parse(fs.readFileSync(path.join(__dirname, '../questions.json')));
+}
 
-// Get today's date in YYYY-MM-DD format
-const today = new Date().toISOString().split('T')[0];
-
-// Find the question with a matching date
-const todayQuestion = questions.find(q => q.date === today);
+function getTodayQuestion() {
+    const today = getTodayDate();
+    const questions = getQuestions(); // Get fresh questions data
+    
+    console.log(`Current date: ${today}`);
+    console.log(`Available questions:`, questions.map(q => ({ id: q.question_id, date: q.date })));
+    
+    return questions.find(q => q.date === today);
+}
 
 // Endpoint
 exports.getQuestion = (req, res) => {
+    const todayQuestion = getTodayQuestion();
+    
     if (!todayQuestion) {
         return res.status(404).json({ error: 'No question found for today.' });
     }
@@ -35,6 +42,12 @@ exports.getQuestion = (req, res) => {
 };
 
 exports.submitAnswer = async (req, res) => {
+    const todayQuestion = getTodayQuestion();
+    
+    if (!todayQuestion) {
+        return res.status(404).json({ error: 'No question found for today.' });
+    }
+    
     const { username, userAnswer } = req.body;
     const prompt = `You are an evaluator for a financial advice game based on dave ramsey principles. Rate the user's advice compared to the reference answer, on a scale from 0 (irrelevant) to 10000 (perfect match in sentiment and recommendation). Points should should be 
 
@@ -69,6 +82,12 @@ Only return a number between 0 and 10000 with variance of 1.`;
 
 exports.getLeaderboard = async (req, res) => {
     const today = getTodayDate();
+    const todayQuestion = getTodayQuestion();
+    
+    if (!todayQuestion) {
+        return res.status(404).json({ error: 'No question found for today.' });
+    }
+    
     const submissions = await Submission.find({ date: today, question_id: todayQuestion.question_id })
         .sort({ score: -1 });
     res.json(submissions);
@@ -95,7 +114,8 @@ exports.getScoreExplanation = async (req, res) => {
         
         console.log(`Found submission: ${submission._id}, question_id: ${submission.question_id}`);
         
-        // Get the question details
+        // Get the question details - using fresh data
+        const questions = getQuestions();
         const questionData = questions.find(q => q.question_id === submission.question_id);
         
         if (!questionData) {

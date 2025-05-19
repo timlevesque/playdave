@@ -293,6 +293,14 @@ async function loadLeaderboard() {
 
         const medals = ['🥇', '🥈', '🥉'];
 
+        if (data.length === 0) {
+            const emptyMessage = document.createElement('div');
+            emptyMessage.className = 'text-center text-gray-500 py-4';
+            emptyMessage.textContent = 'Be the first to answer today\'s question!';
+            board.appendChild(emptyMessage);
+            return;
+        }
+
         data.forEach((entry, index) => {
             const li = document.createElement('li');
             li.className = 'bg-white rounded-xl shadow-md px-4 py-3 flex justify-between items-center';

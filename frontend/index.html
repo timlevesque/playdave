@@ -5,18 +5,32 @@
     <title>Question of the Day</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4 py-8">
+<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4 py-8 relative">
+    <!-- User Profile Circle with Dropdown in upper right -->
+    <div id="user-profile" class="absolute top-4 right-4">
+        <div id="user-circle" class="hidden w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold cursor-pointer">
+            JD
+        </div>
+        
+        <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-10 py-2">
+            <p id="dropdown-username" class="px-4 py-2 text-sm text-gray-700 border-b border-gray-200"></p>
+            <button id="sign-out-btn" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100" onclick="signOut()">
+                Sign Out
+            </button>
+        </div>
+    </div>
     
     <div class="bg-white rounded-2xl shadow-xl p-8 w-full max-w-2xl space-y-6">
-        <p id="user-display" class="text-center text-gray-600 italic mb-4"></p>
+        <!-- Welcome back message -->
+        <div id="welcome-message" class="hidden">
+            <p class="text-center font-medium">Welcome, <span id="welcome-name"></span>!</p>
+        </div>
         
-        <button id="sign-out-btn" class="hidden text-red-600 hover:text-red-800 font-medium text-sm mt-2 mx-auto block" onclick="signOut()">
-            Sign Out
-        </button>
-<div class="space-y-6">
-        <h1 class="text-3xl font-bold text-gray-800 text-center">Question of the Day</h1>
-        <h2 class="font-bold  text-gray-500 text-center">Test your knowledge everyday with real calls from the Ramsey Show!</h2>
-</div>
+        <div class="space-y-6">
+            <h1 class="text-3xl font-bold text-gray-800 text-center">Question of the Day</h1>
+            <h2 class="font-bold text-gray-500 text-center">Test your knowledge everyday with real calls from the Ramsey Show!</h2>
+        </div>
+        
         <p id="prompt" class="text-lg text-gray-700 text-center">Loading question...</p>
 
         <div class="space-y-4">
@@ -28,7 +42,7 @@
             >
 
             <textarea 
-                maxlength ="300"
+                maxlength="300"
                 id="answer" 
                 placeholder="Your answer..." 
                 rows="4" 

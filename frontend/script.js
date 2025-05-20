@@ -7,6 +7,7 @@ async function loadQuestion() {
         localStorage.setItem('questionId', data.question_id);  // Store current question ID
 
         checkIfUserAlreadyAnswered();
+        updateUserInterface();
     } catch (err) {
         document.getElementById('prompt').innerText = "Error loading question.";
     }
@@ -162,6 +163,7 @@ function submitAnswer() {
         // Lock future submissions for this question
         localStorage.setItem(submissionKey, 'true');
         checkIfUserAlreadyAnswered();
+        updateUserInterface();
         loadLeaderboard();
     })
     .catch(err => {
@@ -267,19 +269,6 @@ async function loadExplanation(submissionId) {
 
 // Load leaderboard from server
 async function loadLeaderboard() {
-    const currentUser = localStorage.getItem('fullName');
-
-    const userDisplay = document.getElementById('user-display');
-    const signOutBtn = document.getElementById('sign-out-btn');
-
-    if (currentUser) {
-        userDisplay.textContent = `You are logged in as: ${currentUser}`;
-        signOutBtn.classList.remove('hidden');
-    } else {
-        userDisplay.textContent = '';
-        signOutBtn.classList.add('hidden');
-    }
-
     try {
         const res = await fetch('/api/game/leaderboard');
         const data = await res.json();
@@ -287,10 +276,6 @@ async function loadLeaderboard() {
         board.innerHTML = '';
 
         const currentUser = localStorage.getItem('fullName');
-        document.getElementById('user-display').textContent = currentUser 
-            ? `You are logged in as: ${currentUser}` 
-            : '';
-
         const medals = ['🥇', '🥈', '🥉'];
 
         if (data.length === 0) {
@@ -337,6 +322,54 @@ async function loadLeaderboard() {
     }
 }
 
+// Function to get user initials from full name
+function getUserInitials(fullName) {
+    if (!fullName) return '';
+    
+    const nameParts = fullName.trim().split(' ');
+    if (nameParts.length === 1) return nameParts[0].charAt(0).toUpperCase();
+    
+    return (nameParts[0].charAt(0) + nameParts[nameParts.length - 1].charAt(0)).toUpperCase();
+}
+
+// Update user circle, dropdown, and welcome message
+function updateUserInterface() {
+    const fullName = localStorage.getItem('fullName');
+    const userCircle = document.getElementById('user-circle');
+    const welcomeMessage = document.getElementById('welcome-message');
+    const dropdownUsername = document.getElementById('dropdown-username');
+    
+    if (fullName) {
+        // Update and show user circle with initials
+        userCircle.textContent = getUserInitials(fullName);
+        userCircle.classList.remove('hidden');
+        
+        // Update dropdown username
+        dropdownUsername.textContent = fullName;
+        
+        // Show welcome message with user's first name
+        const firstName = fullName.split(' ')[0];
+        document.getElementById('welcome-name').textContent = firstName;
+        welcomeMessage.classList.remove('hidden');
+        
+        // Hide username input if we already have a name
+        document.getElementById('username').classList.add('hidden');
+    } else {
+        // Hide user circle and welcome message if no user
+        userCircle.classList.add('hidden');
+        welcomeMessage.classList.add('hidden');
+        
+        // Show username input
+        document.getElementById('username').classList.remove('hidden');
+    }
+}
+
+// Toggle dropdown visibility
+function toggleDropdown() {
+    const dropdown = document.getElementById('user-dropdown');
+    dropdown.classList.toggle('hidden');
+}
+
 function signOut() {
     const questionId = localStorage.getItem('questionId');
     const fullName = localStorage.getItem('fullName');
@@ -351,28 +384,40 @@ function signOut() {
     localStorage.removeItem('fullName');
     document.getElementById('username').value = '';
     document.getElementById('username').classList.remove('hidden');
-    document.getElementById('user-display').textContent = '';
-    document.getElementById('sign-out-btn').classList.add('hidden');
+    document.getElementById('user-dropdown').classList.add('hidden');
     document.getElementById('result-container').classList.add('hidden');
     
     // Show input fields when signing out
     document.querySelector('.space-y-4').classList.remove('hidden');
     
+    // Update UI elements
+    updateUserInterface();
     loadLeaderboard(); // Refresh leaderboard without highlight
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
-    const savedName = localStorage.getItem('fullName');
-    const usernameInput = document.getElementById('username');
+    const userCircle = document.getElementById('user-circle');
     
+    // Add event listener to user circle for dropdown toggle
+    userCircle.addEventListener('click', toggleDropdown);
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (event) => {
+        const dropdown = document.getElementById('user-dropdown');
+        if (!dropdown.classList.contains('hidden') && 
+            !userCircle.contains(event.target) && 
+            !dropdown.contains(event.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });
+    
+    const savedName = localStorage.getItem('fullName');
     if (savedName) {
-        // If name is already stored, hide the input field and set its value
-        usernameInput.value = savedName;
-        usernameInput.classList.add('hidden');
+        document.getElementById('username').value = savedName;
     }
 
     loadQuestion();
+    updateUserInterface();
     loadLeaderboard();
     
     // Check if there's a previous submission to load explanation

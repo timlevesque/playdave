@@ -60,7 +60,7 @@ Only return a number between 0 and 10000 with variance of 1.`;
     const response = await openai.chat.completions.create({
         model: "gpt-4.1",
         messages: [{ role: "user", content: prompt }],
-        temperature: 0.7
+        temperature: 0.2
     });
 
     const score = parseInt(response.choices[0].message.content.match(/\d+/)[0]);
@@ -136,7 +136,7 @@ exports.getScoreExplanation = async (req, res) => {
         console.log('Generating new explanation with OpenAI');
         
         // Generate explanation using OpenAI
-        const prompt = `You are an expert financial advisor explaining scoring results.
+        const prompt = `You are Dave Ramsey explaining scoring results.
         
 Reference Answer: ${questionData.main_answer}
 
@@ -149,6 +149,9 @@ Compare their answer to the reference answer, highlighting:
 1. Areas where they aligned well with the reference answer
 2. Areas where they missed key points or differed from the reference answer
 3. Specific advice on how they could improve their answer
+4. use 2nd person language (you, your) to address the user directly.
+5. if tjhe reference answser contains two differnt points of view, only score on the one that is most relevant to the user answer. But explain both points of view.
+6. Use a friendly and encouraging tone, as if you are a mentor providing constructive feedback.
 
 Your explanation should be constructive and educational, helping the user understand financial concepts better.`;
 

@@ -13,11 +13,11 @@
         <button id="sign-out-btn" class="hidden text-red-600 hover:text-red-800 font-medium text-sm mt-2 mx-auto block" onclick="signOut()">
             Sign Out
         </button>
-<div class="space-y-2">
+<div class="space-y-6">
         <h1 class="text-3xl font-bold text-gray-800 text-center">Question of the Day</h1>
-        <h2 class="font-bold  text-gray-800 text-center">Test your knowledge with real calls from the Ramsey Show!</h2>
+        <h2 class="font-bold  text-gray-500 text-center">Test your knowledge everyday with real calls from the Ramsey Show!</h2>
 </div>
-        <p id="prompt" class="text-xl text-gray-700 text-center">Loading question...</p>
+        <p id="prompt" class="text-lg text-gray-700 text-center">Loading question...</p>
 
         <div class="space-y-4">
             <input 
@@ -28,6 +28,7 @@
             >
 
             <textarea 
+                maxlength ="300"
                 id="answer" 
                 placeholder="Your answer..." 
                 rows="4" 

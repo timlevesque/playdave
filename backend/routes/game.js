@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const gameController = require('../controllers/gameController');
 
+router.get('/', (req, res) => {
+  res.send('Game route working!');
+});
+
+
 router.get('/question', gameController.getQuestion);
 router.post('/submit', gameController.submitAnswer);
 router.get('/leaderboard', gameController.getLeaderboard);

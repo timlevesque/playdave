@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question of the Day</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4 py-8 relative">
+<body class="bg-white min-h-screen flex items-center justify-center px-4 py-8 relative">
     <!-- User Profile Circle with Dropdown in upper right -->
-    <div id="user-profile" class="absolute top-4 right-4">
+    <div id="user-profile" class="absolute top-4 right-4 z-20">
         <div id="user-circle" class="hidden w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold cursor-pointer">
             JD
         </div>
@@ -20,34 +21,38 @@
         </div>
     </div>
     
-    <div class="bg-white rounded-2xl shadow-xl p-8 w-full max-w-2xl space-y-6">
+    <div class="px-4 w-full max-w-2xl space-y-4 sm:space-y-6 my-6 sm:my-0">
         <!-- Welcome back message -->
         <div id="welcome-message" class="hidden">
             <p class="text-center font-medium">Welcome, <span id="welcome-name"></span>!</p>
         </div>
         
-        <div class="space-y-6">
-            <h1 class="text-3xl font-bold text-gray-800 text-center">Question of the Day</h1>
-            <h2 class="font-bold text-gray-500 text-center">Test your knowledge everyday with real calls from the Ramsey Show!</h2>
+        <div class="space-y-3 sm:space-y-6">
+            <h1 class="text-4xl sm:text-6xl font-bold text-gray-800 text-center">Question of the Day</h1>
+            <h2 class="text-sm font-bold text-gray-500 text-center">Test your knowledge everyday with real calls from the Ramsey Show!</h2>
         </div>
         
-        <p id="prompt" class="text-lg text-gray-700 text-center">Loading question...</p>
+        <p id="prompt" class="text-md sm:text-lg text-gray-700 text-center">Loading question...</p>
 
-        <div class="space-y-4">
+        <div class="space-y-3 sm:space-y-4">
             <input 
                 type="text" 
                 id="username" 
                 placeholder="Your First and Last Name" 
-                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             >
 
             <textarea 
                 maxlength="300"
                 id="answer" 
                 placeholder="Your answer..." 
-                rows="4" 
-                class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                rows="3" 
+                class="w-full border border-gray-300 rounded-lg px-3 py-2 sm:px-4 sm:py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             ></textarea>
+
+            <div class="text-right text-xs text-gray-500">
+                <span id="char-count">0</span>/300
+            </div>
 
             <button 
                 onclick="submitAnswer()" 
@@ -57,23 +62,45 @@
             </button>
         </div>
 
-        <div id="result-container" class="hidden space-y-4">
-            <p id="score" class="text-center text-green-600 font-bold text-xl"></p>
+        <div id="result-container" class="hidden space-y-3 sm:space-y-4">
+            <p id="score" class="text-center text-green-600 font-bold text-lg sm:text-xl"></p>
             
-            <div class="border-t border-b border-gray-200 py-4">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">Score Explanation</h3>
+            <div class="border-t border-b border-gray-200 py-3 sm:py-4">
+                <h3 class="text-md sm:text-lg font-semibold text-gray-800 mb-1 sm:mb-2">Score Explanation</h3>
                 <div id="explanation" class="text-gray-700 prose prose-sm max-w-none">
                     <p class="text-center text-gray-500">Loading explanation...</p>
                 </div>
             </div>
         </div>
 
-        <div>
-            <h2 class="text-2xl font-semibold text-gray-800 mb-2 text-center">Leaderboard</h2>
-            <ol id="leaderboard" class="list-decimal pl-5 text-gray-700 space-y-1"></ol>
+        <div class="border-2 border-gray-200 pt-4 rounded-lg">
+            <h2 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">Leaderboard</h2>
+            <ol id="leaderboard" class="list-decimal pl-5 text-gray-700 space-y-1 text-sm sm:text-base"></ol>
         </div>
     </div>
 
+    <script>
+        // Add character counter for textarea
+        document.getElementById('answer').addEventListener('input', function() {
+            document.getElementById('char-count').textContent = this.value.length;
+        });
+        
+        // Toggle dropdown on user circle click
+        document.getElementById('user-circle').addEventListener('click', function() {
+            const dropdown = document.getElementById('user-dropdown');
+            dropdown.classList.toggle('hidden');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const userCircle = document.getElementById('user-circle');
+            const userDropdown = document.getElementById('user-dropdown');
+            
+            if (!userCircle.contains(event.target) && !userDropdown.contains(event.target)) {
+                userDropdown.classList.add('hidden');
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

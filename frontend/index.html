@@ -9,17 +9,18 @@
 <body class="bg-white min-h-screen flex items-center justify-center px-4 py-8 relative">
     <!-- User Profile Circle with Dropdown in upper right -->
     <div id="user-profile" class="absolute top-4 right-4 z-20">
-        <div id="user-circle" class="hidden w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold cursor-pointer">
-            JD
-        </div>
-        
-        <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-10 py-2">
-            <p id="dropdown-username" class="px-4 py-2 text-sm text-gray-700 border-b border-gray-200"></p>
-            <button id="sign-out-btn" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100" onclick="signOut()">
-                Sign Out
-            </button>
-        </div>
+    <div onclick="toggleDropdown()" id="user-circle" class="hidden w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold cursor-pointer">
+        JD
     </div>
+
+    <div id="user-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg z-10 py-2">
+        <p id="dropdown-username" class="px-4 py-2 text-sm text-gray-700 border-b border-gray-200"></p>
+        <button id="sign-out-btn" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-gray-100" onclick="signOut()">
+            Sign Out
+        </button>
+    </div>
+</div>
+
     
     <div class="px-4 w-full max-w-2xl space-y-4 sm:space-y-6 my-6 sm:my-0">
         <!-- Welcome back message -->
@@ -34,7 +35,8 @@
         
         <p id="prompt" class="text-md sm:text-lg text-gray-700 text-center">Loading question...</p>
 
-        <div class="space-y-3 sm:space-y-4">
+        <div id="input-section" class="space-y-3 sm:space-y-4">
+
             <input 
                 type="text" 
                 id="username" 
@@ -64,6 +66,26 @@
 
         <div id="result-container" class="hidden space-y-3 sm:space-y-4">
             <p id="score" class="text-center text-green-600 font-bold text-lg sm:text-xl"></p>
+<div id="share-widget" class=" p-4 space-y-3">
+    <pre 
+        id="share-message" 
+        class="whitespace-pre-wrap text-sm text-gray-800 font-medium bg-gray-50 border border-gray-200 rounded-lg text-center p-4"
+    >
+🏆 I earned ??? Dave Bucks
+on today’s Question of the Day!
+
+Can you beat me?
+👉 Play now: https://yourdomain.com
+    </pre>
+    <button 
+        id="share-score-btn"
+        onclick="shareScore()" 
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+    >
+        Copy to Clipboard
+    </button>
+</div>
+
             
             <div class="border-t border-b border-gray-200 py-3 sm:py-4">
                 <h3 class="text-md sm:text-lg font-semibold text-gray-800 mb-1 sm:mb-2">Score Explanation</h3>
@@ -71,9 +93,10 @@
                     <p class="text-center text-gray-500">Loading explanation...</p>
                 </div>
             </div>
+  
         </div>
 
-        <div class="border-2 border-gray-200 pt-4 rounded-lg">
+        <div class="border-2 border-gray-200 px-4 py-8 rounded-xl ">
             <h2 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-1 sm:mb-2 text-center">Leaderboard</h2>
             <ol id="leaderboard" class="list-decimal pl-5 text-gray-700 space-y-1 text-sm sm:text-base"></ol>
         </div>

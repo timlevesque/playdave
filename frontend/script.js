@@ -17,7 +17,7 @@ function checkIfUserAlreadyAnswered() {
     const fullName = localStorage.getItem('fullName');
     const questionId = localStorage.getItem('questionId');
     const submitButton = document.querySelector('button[onclick="submitAnswer()"]');
-    const inputFields = document.querySelector('.space-y-4');
+    const inputFields = document.getElementById('input-section');
     const resultContainer = document.getElementById('result-container');
 
     if (!fullName || !questionId || !submitButton) return;
@@ -106,6 +106,7 @@ function submitAnswer() {
         console.log("Submission response:", data);
         const scoreText = 'Score: ' + data.score + ' Dave Bucks';
         document.getElementById('score').innerText = scoreText;
+
         
         // Store the score in localStorage for persistence
         localStorage.setItem(`score-${questionId}-${fullName}`, scoreText);
@@ -170,6 +171,7 @@ function submitAnswer() {
         document.getElementById('score').innerText = 'Error submitting answer.';
         document.getElementById('explanation').innerHTML = '<p class="text-center text-red-500">Failed to evaluate your answer.</p>';
     });
+
 }
 
 function toggleExplanation() {
@@ -330,10 +332,12 @@ function getUserInitials(fullName) {
     if (nameParts.length === 1) return nameParts[0].charAt(0).toUpperCase();
     
     return (nameParts[0].charAt(0) + nameParts[nameParts.length - 1].charAt(0)).toUpperCase();
+    
 }
 
 // Update user circle, dropdown, and welcome message
 function updateUserInterface() {
+    setupShareWidget();
     const fullName = localStorage.getItem('fullName');
     const userCircle = document.getElementById('user-circle');
     const welcomeMessage = document.getElementById('welcome-message');
@@ -362,13 +366,11 @@ function updateUserInterface() {
         // Show username input
         document.getElementById('username').classList.remove('hidden');
     }
+
+
 }
 
-// Toggle dropdown visibility
-function toggleDropdown() {
-    const dropdown = document.getElementById('user-dropdown');
-    dropdown.classList.toggle('hidden');
-}
+
 
 function signOut() {
     const questionId = localStorage.getItem('questionId');
@@ -388,7 +390,7 @@ function signOut() {
     document.getElementById('result-container').classList.add('hidden');
     
     // Show input fields when signing out
-    document.querySelector('.space-y-4').classList.remove('hidden');
+     document.getElementById('input-section').classList.remove('hidden');
     
     // Update UI elements
     updateUserInterface();
@@ -396,20 +398,7 @@ function signOut() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const userCircle = document.getElementById('user-circle');
     
-    // Add event listener to user circle for dropdown toggle
-    userCircle.addEventListener('click', toggleDropdown);
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (event) => {
-        const dropdown = document.getElementById('user-dropdown');
-        if (!dropdown.classList.contains('hidden') && 
-            !userCircle.contains(event.target) && 
-            !dropdown.contains(event.target)) {
-            dropdown.classList.add('hidden');
-        }
-    });
     
     const savedName = localStorage.getItem('fullName');
     if (savedName) {
@@ -419,6 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadQuestion();
     updateUserInterface();
     loadLeaderboard();
+    
     
     // Check if there's a previous submission to load explanation
     const questionId = localStorage.getItem('questionId');
@@ -430,5 +420,71 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+
+
+
 // Auto-refresh leaderboard every 10 seconds
 setInterval(loadLeaderboard, 10000);
+
+function shareScore() {
+    const message = document.getElementById('share-message').textContent;
+
+    navigator.clipboard.writeText(message)
+        .then(() => {
+            const btn = document.getElementById('share-score-btn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }, 2000);
+        })
+        .catch(err => {
+            console.error("Clipboard error:", err);
+            alert("Failed to copy to clipboard.");
+        });
+}
+
+function setupShareWidget() {
+    const fullName = localStorage.getItem('fullName');
+    const questionId = localStorage.getItem('questionId');
+
+    if (!fullName || !questionId) return;
+
+    const scoreText = localStorage.getItem(`score-${questionId}-${fullName}`);
+    if (!scoreText) return;
+
+    const scoreMatch = scoreText.match(/\d+/);
+    if (!scoreMatch) return;
+
+    const scoreNumber = scoreMatch[0];
+    const shareText = 
+        `🏆 I earned ${scoreNumber} Dave Bucks\n` +
+        `on today’s Question of the Day!\n\n` +
+        `Can you beat me?\n👉 Play now: ${window.location.origin}`;
+
+    document.getElementById('share-message').textContent = shareText;
+    document.getElementById('share-widget').classList.remove('hidden');
+}
+
+// Toggle dropdown visibility
+function toggleDropdown() {
+const userCircle = document.getElementById('user-circle');
+    
+   // Toggle dropdown on circle click
+    userCircle.addEventListener('click', toggleDropdown);
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (event) => {
+        const dropdown = document.getElementById('user-dropdown');
+        if (!dropdown.classList.contains('hidden') &&
+            !userCircle.contains(event.target) &&
+            !dropdown.contains(event.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });
+}
+

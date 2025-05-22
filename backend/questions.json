@@ -44,20 +44,20 @@
     },
     "date": "2025-05-21"
   },
-  {
+ {
     "question_id": "q004",
-    "prompt": "My spouse and I are in Baby Step 2 with $85,000 in debt and expecting our first child. Should we sell our house (with $100k equity) to wipe out our debt and rent? What should we do?",
-    "main_answer": "Yes, selling your house is a smart move. With a baby coming and limited income, wiping out all debt and having an emergency fund gives you breathing room and a clean start. But you must also commit to changing your financial habits so you don’t fall back into debt.",
-    "context": "Ramsey Baby Step 2 is about sacrifice. Selling a home to eliminate all debt and start fresh is often wise, especially when a new child is involved and finances are tight.",
+    "prompt": "My wife and I are in Baby Step 2 with $85,000 in debt and expecting our first child. We’re considering selling our house to pay off the debt and start over — should we do it?",
+    "main_answer": "Ken Coleman advised selling the house since it's not their forever home and would yield roughly $100,000 after fees, which could pay off the $85,000 in debt and leave a $15,000 emergency fund. He emphasized this would give the couple a clean slate and margin with the baby coming. Rachel Cruze initially urged caution, suggesting they pause Baby Step 2 and pile up cash during pregnancy. However, she agreed with Ken’s strategy if they fully commit to avoiding debt again. She warned that if they don't change their behavior, they risk falling back into debt. Both agreed the plan was solid if taken seriously.",
+    "date": "2025-05-22",
+    "extra_context": "Austin makes $30,000 in ministry, and his wife earns $35,000 as a therapist. They have $50,000 in student loans, $25,000 in credit cards, and $10,000 on a car. They owe $254,000 on their mortgage, and the house is valued at $370,000. Austin is getting his real estate license and does DoorDash to supplement income. The couple was already considering moving out of state within three years.",
     "scoring_criteria": {
-      "5": "Recommends selling the house, becoming debt-free, and emphasizes behavior change.",
-      "4": "Recommends selling the house to pay debt and mentions baby or stability.",
-      "3": "Supports selling but omits key reasoning (e.g., behavior change, emergency fund).",
-      "2": "Suggests keeping house or questions selling without offering a better alternative.",
-      "1": "Opposes selling and ignores the debt burden and new baby.",
-      "0": "No answer or unrelated advice."
-    },
-    "date": "2025-05-22"
+      "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
+      "4": "Strong advice, minor gaps.",
+      "3": "Basic understanding, lacks clarity or specifics.",
+      "2": "Weak insight or partial misunderstanding.",
+      "1": "Poor grasp or risky suggestion.",
+      "0": "Completely wrong or off-topic."
+    }
   },
   {
     "question_id": "q005",
@@ -88,5 +88,125 @@
       "0": "Irrelevant or no answer."
     },
     "date": "2025-05-24"
+  },
+  {
+  "question_id": "q007",
+  "prompt": "My boyfriend and I have been dating for over a year and want to rent out both our homes and move into a rental together, though we aren’t married yet. Is this a smart move?",
+  "main_answer": "No. Since you're not married, you shouldn't treat your finances or real estate as joint decisions. Renting both homes while living together adds financial risk and complexity without legal protection. Keep your finances and property decisions separate until you're legally married. Focus on your individual financial goals and avoid mixing assets.",
+  "date": "2025-05-25",
+  "extra_context": "I make $120K and he makes $80K. I have $12K in car debt; he has $3K in debt. We want to build a rental portfolio but aren’t legally committed yet.",
+  "scoring_criteria": {
+    "5": "Clearly advises financial separation before marriage and outlines risks.",
+    "4": "Strong advice with minor omissions or less emphasis on legal protection.",
+    "3": "Acknowledges risk but unclear or vague on what to do instead.",
+    "2": "Minimally addresses risks or suggests compromise without legal backing.",
+    "1": "Recommends moving in or sharing finances despite relationship status.",
+    "0": "Fails to address the question or gives unrelated advice."
   }
+},
+{
+  "question_id": "q008",
+  "prompt": "We have $400K–$500K in cash and are unsure whether to pay off our house, business loan, or invest. What’s the best approach?",
+  "main_answer": "Pay off the business loan first—it’s riskier and has a higher interest rate. Then start investing 15% of your income for retirement. After that, use any remaining margin to pay off the house. Don’t try to do all three at once. Focus on safety and cash flow first, then growth.",
+  "date": "2025-05-26",
+  "extra_context": "We’re self-employed with four kids. Our home loan is ~$300K at 2.3%, and our business loan is ~$400K at 4.5%. We have no retirement plans yet.",
+  "scoring_criteria": {
+    "5": "Prioritizes business loan, then retirement, then mortgage with strong reasoning.",
+    "4": "Mostly sound with clear steps, minor gaps in detail.",
+    "3": "Understands debt reduction but lacks order or detail.",
+    "2": "Suggests doing too much at once or offers vague priorities.",
+    "1": "Recommends investing before clearing business debt.",
+    "0": "Irrelevant or incorrect advice."
+  }
+},
+{
+  "question_id": "q009",
+  "prompt": "My girlfriend of 20 years needs a heart and kidney transplant. We’re not married. Am I financially responsible for her medical bills?",
+  "main_answer": "Legally, no—you’re not responsible since you're not married. But emotionally, you have a deep relationship and should support her however you can. Start by contacting her insurance providers to understand costs and coverage. Then plan what financial help, if any, you can offer. This is about being there for someone you love.",
+  "date": "2025-05-27",
+  "extra_context": "She has Medicare and Humana coverage. I provide housing and food. I’m worried about costs and what I might owe.",
+  "scoring_criteria": {
+    "5": "Explains legal boundaries and emotional responsibility clearly, with action steps.",
+    "4": "Good clarity on role and steps, slight lack in emotional framing or detail.",
+    "3": "Acknowledges support role but lacks clarity or specifics.",
+    "2": "Minimal advice or focused too narrowly on legality.",
+    "1": "Suggests ignoring the situation or denying responsibility.",
+    "0": "Unrelated or dismissive response."
+  }
+},
+{
+  "question_id": "q010",
+  "prompt": "We’re 33, debt-free with $2M net worth. We’ve maxed out retirement and paid off our house. What should we do next?",
+  "main_answer": "Start by increasing your generosity, continuing to invest beyond retirement accounts, and intentionally enjoying your money. Set new personal goals—like travel, a project, or dream purchase—and expect some emotional adjustment as you manage more wealth. Keep your financial systems intact and stay purpose-driven.",
+  "date": "2025-05-28",
+  "extra_context": "We’re engineers, don’t want to own rentals, and recently got raises. We feel unsure how to handle the extra money.",
+  "scoring_criteria": {
+    "5": "Balanced advice covering giving, investing, lifestyle, and emotional clarity.",
+    "4": "Solid direction with practical goals, minor omission on mindset.",
+    "3": "Encourages planning but lacks depth or misses emotional aspect.",
+    "2": "Focuses on only one area or lacks intentionality.",
+    "1": "Encourages excessive saving or spending without a plan.",
+    "0": "Irrelevant or vague advice."
+  }
+},
+{
+  "question_id": "q011",
+  "prompt": "I run a construction business and want to buy a house, but I owe taxes, credit card debt, and vehicle loans. Should I buy now or wait?",
+  "main_answer": "You should not buy a house right now. You have IRS debt, credit card debt, a leased car, and a $35K truck loan—this creates too much financial instability. Pay off the IRS first, then work through the rest of your debts. Focus on creating a business budget and improving cash flow. Homeownership should only be a goal once you're debt-free and financially stable.",
+  "date": "2025-05-29",
+  "extra_context": "I owe $19K in credit cards, $4,300 in taxes (more pending), $35K on a work truck, and lease a personal vehicle. My business grosses ~$50K/month but lacks structure.",
+  "scoring_criteria": {
+    "5": "Strong rejection of home purchase, clear debt payoff steps and business advice.",
+    "4": "Good focus on debt and delay, slightly less emphasis on business cash flow.",
+    "3": "Recognizes need to wait, but lacks detail on financial priorities.",
+    "2": "Suggests delay vaguely or supports home purchase too soon.",
+    "1": "Encourages buying despite debt and instability.",
+    "0": "Unrelated or harmful advice."
+  }
+},
+{
+  "question_id": "q012",
+  "prompt": "We’re getting married at 21 with no debt, $12K in savings, and $150K gifted from her parents. How should we handle the money?",
+  "main_answer": "Treat the $150K as a down payment for your first home, but don’t rush. Rent for at least a year, settle into marriage, and plan your goals. Upgrade your car only if needed, and avoid lifestyle inflation. Budget together, invest 15% of your income, and keep your finances simple and intentional. Use Financial Peace University to stay aligned as a couple.",
+  "date": "2025-05-30",
+  "extra_context": "I’ll be a civil engineer, and she’ll teach elementary school. We have no student loans and are just starting out financially.",
+  "scoring_criteria": {
+    "5": "Emphasizes patience, smart use of gift, and investment habits.",
+    "4": "Strong general plan with minor gaps in detail or structure.",
+    "3": "Offers decent guidance but lacks direction or clarity on timing.",
+    "2": "Suggests immediate spending or ignores the long-term plan.",
+    "1": "Encourages irresponsible use of funds without structure.",
+    "0": "Unrelated or incorrect financial advice."
+  }
+},
+{
+  "question_id": "q013",
+  "prompt": "I’m 57 and can contribute $14K/year for 3 years to increase my pension by $6K/year for life. Is it worth it?",
+  "main_answer": "No, it's not a great return. You’d contribute $42K to get $6K more per year, which takes 7 years to break even. At your age, you’re better off investing that money for greater flexibility and potential returns. Only consider the buy-in if you’re certain you’ll live much longer in retirement and have no better use for the money.",
+  "date": "2025-05-31",
+  "extra_context": "I work in the school system and plan to retire in 3 years. I may return to full-time work after retirement in a different state.",
+  "scoring_criteria": {
+    "5": "Clear break-even analysis, advises against contribution based on timeline.",
+    "4": "Good rejection with basic math, may miss opportunity cost framing.",
+    "3": "Acknowledges cost but vague on decision logic or age factors.",
+    "2": "Suggests contribution without strong justification or ignores ROI.",
+    "1": "Encourages the buy-in with no consideration for value or age.",
+    "0": "Unrelated or unclear response."
+  }
+},
+{
+  "question_id": "q014",
+  "prompt": "I’m 24 with $24K saved and accepted into a master’s in accounting. Should I go now or work first to avoid student loans?",
+  "main_answer": "Work first. Find an accounting job and look for an employer that offers tuition assistance. Many firms will help fund your master’s if you prove your value. Avoid loans—you have cash and time. Consider part-time programs while working. This path gives you experience and preserves your savings.",
+  "date": "2025-06-01",
+  "extra_context": "I have a finance degree, enjoyed a tax co-op, and plan to pursue the CPA path. The master’s program would cost $29K–$40K.",
+  "scoring_criteria": {
+    "5": "Clear work-first advice, avoid debt, suggests employer support.",
+    "4": "Strong direction but may skip tuition strategy or timeline clarity.",
+    "3": "Encourages delay but misses key alternatives or financing.",
+    "2": "Vague or conflicted recommendation about school timing.",
+    "1": "Encourages loan or ignores better work options.",
+    "0": "Unrelated or unclear answer."
+  }
+}
 ]

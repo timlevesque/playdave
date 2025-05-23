@@ -58,7 +58,7 @@ User Answer: ${userAnswer}
 Only return a number between 0 and 10000 with variance of 1.`;
 
     const response = await openai.chat.completions.create({
-        model: "gpt-4.1",
+        model: "gpt-4.1-nano",
         messages: [{ role: "user", content: prompt }],
         temperature: 0.2
     });
@@ -157,9 +157,9 @@ Your explanation should be constructive and educational, helping the user unders
 
         try {
             const response = await openai.chat.completions.create({
-                model: "gpt-4.1",
+                model: "gpt-4.1-nano",
                 messages: [{ role: "user", content: prompt }],
-                temperature: 0.7,
+                temperature: 0.2,
                 max_tokens: 1000
             });
 

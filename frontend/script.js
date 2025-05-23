@@ -312,7 +312,7 @@ async function loadLeaderboard() {
 
             // RIGHT: Score
             const points = document.createElement('span');
-            points.className = 'text-blue-600 font-bold text-lg';
+            points.className = 'text-blue-600 font-bold';
             points.textContent = `${entry.score} Dave Bucks`;
 
             li.appendChild(left);

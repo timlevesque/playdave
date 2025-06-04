@@ -1,6 +1,12 @@
+function getLocalDateString() {
+    const local = new Date();
+    local.setMinutes(local.getMinutes() - local.getTimezoneOffset()); // adjust to local timezone
+    return local.toISOString().split('T')[0];
+}
+
 async function loadQuestion() {
     try {
-        const res = await fetch('/api/game/question');
+        const res = await fetch(`/api/game/question?localDate=${getLocalDateString()}`);
         const data = await res.json();
 
         document.getElementById('prompt').innerText = data.prompt;

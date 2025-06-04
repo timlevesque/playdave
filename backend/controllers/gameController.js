@@ -27,8 +27,10 @@ function getTodayQuestion() {
 
 // Endpoint
 exports.getQuestion = (req, res) => {
-    const todayQuestion = getTodayQuestion();
-    
+    const today = req.query.localDate || getTodayDate(); // fallback to server UTC
+    const questions = getQuestions();
+    const todayQuestion = questions.find(q => q.date === today);
+
     if (!todayQuestion) {
         return res.status(404).json({ error: 'No question found for today.' });
     }
@@ -40,6 +42,7 @@ exports.getQuestion = (req, res) => {
         date: todayQuestion.date
     });
 };
+
 
 exports.submitAnswer = async (req, res) => {
     const todayQuestion = getTodayQuestion();

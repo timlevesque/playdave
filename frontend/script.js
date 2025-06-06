@@ -68,6 +68,12 @@ function submitAnswer() {
     const userAnswer = document.getElementById('answer').value;
     const questionId = localStorage.getItem('questionId');
 
+    if (userAnswer.length < 20) {
+    alert("Your answer must be at least 20 characters or more");
+    return;
+    }
+
+
     if (!fullName || !userAnswer || !questionId) {
         alert("Please enter your full name and answer.");
         return;

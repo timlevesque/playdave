@@ -284,7 +284,8 @@ async function loadExplanation(submissionId) {
 // Load leaderboard from server
 async function loadLeaderboard() {
     try {
-        const res = await fetch('/api/game/leaderboard');
+        const localDate = getLocalDateString();
+        const res = await fetch(`/api/game/leaderboard?localDate=${localDate}`);
         const data = await res.json();
         const board = document.getElementById('leaderboard');
         board.innerHTML = '';

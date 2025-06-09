@@ -83,19 +83,20 @@ Only return a number between 0 and 10000 with variance of 1.`;
     });
 };
 
+
 exports.getLeaderboard = async (req, res) => {
-    const today = getTodayDate();
-    const todayQuestion = getTodayQuestion();
-    
+    const today = req.query.localDate || getTodayDate();
+    const questions = getQuestions();
+    const todayQuestion = questions.find(q => q.date === today);
+
     if (!todayQuestion) {
         return res.status(404).json({ error: 'No question found for today.' });
     }
-    
+
     const submissions = await Submission.find({ date: today, question_id: todayQuestion.question_id })
         .sort({ score: -1 });
     res.json(submissions);
 };
-
 exports.getScoreExplanation = async (req, res) => {
     try {
         const { submission_id } = req.params;

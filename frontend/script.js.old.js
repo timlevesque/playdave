@@ -123,13 +123,7 @@ function submitAnswer() {
         // Store the score in localStorage for persistence
         localStorage.setItem(`score-${questionId}-${fullName}`, scoreText);
 
-        posthog.capture('submitted_answer', {
-                name: fullName,
-                questionId: questionId,
-                score: data.score
-            });
-
-            // Store the submission ID for loading explanations later
+        // Store the submission ID for loading explanations later
         if (data.submission_id) {
             console.log(`Received submission ID: ${data.submission_id}`);
             localStorage.setItem(`submissionId-${questionId}-${fullName}`, data.submission_id);
@@ -362,8 +356,7 @@ function updateUserInterface() {
     const welcomeMessage = document.getElementById('welcome-message');
     const dropdownUsername = document.getElementById('dropdown-username');
     
-    posthog.identify(fullName, { name: fullName });
-        if (fullName) {
+    if (fullName) {
         // Update and show user circle with initials
         userCircle.textContent = getUserInitials(fullName);
         userCircle.classList.remove('hidden');
@@ -448,11 +441,6 @@ document.addEventListener('DOMContentLoaded', () => {
 setInterval(loadLeaderboard, 10000);
 
 function shareScore() {
-        posthog.capture('clicked_share_score', {
-        name: localStorage.getItem('fullName'),
-        questionId: localStorage.getItem('questionId')
-    });
-
     const message = document.getElementById('share-message').textContent;
 
     navigator.clipboard.writeText(message)

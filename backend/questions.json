@@ -184,7 +184,7 @@
     "prompt": "My brother wants to sell his half of our co-owned property. I’d like to keep it as a rental but don’t have the cash to buy him out. Should I borrow $65,000 to buy his half?",
     "main_answer": "No, don’t borrow. You’re not in a position to invest in real estate while you still have a personal mortgage. Work on paying off your own home first and maybe work out a rental agreement with your brother for a few years until you can buy him out.",
     "date": "2025-06-16",
-    "extra_context": "Mitch still owes $105,000 on his own home, has no other debt, and makes just under $70,000/year. He wants to invest for his kids' future.",
+    "extra_context": "He still owes $105,000 on his own home, has no other debt, and makes just under $70,000/year. He wants to invest for his kids' future.",
     "scoring_criteria": {
       "5": "Firmly advises against borrowing for real estate while still owing on personal mortgage, encourages paying off debt first.",
       "4": "Advises against borrowing but without strong emphasis on current obligations.",
@@ -252,6 +252,51 @@
       "2": "Minimizes post-divorce healing and rushes into housing decision.",
       "1": "Recommends immediate home purchase with no pause.",
       "0": "Encourages co-dependency or emotionally driven housing moves."
+    }
+  },
+  {
+    "question_id": "q034",
+    "prompt": "I’m in med school and my wife is starting her master’s. We’ll have around $360,000 in student loans. Should we invest while in school?",
+    "main_answer": "No. Stop all investing and don’t take on any more debt. Try to cash flow your remaining education. If needed, pause your career dreams to avoid this debt load. You can’t invest your way out of debt.",
+    "date": "2025-06-22",
+    "extra_context": "John is 24, about to have $360,000 in med school debt. He and his wife will be earning $60,000 a year total while studying. They’re tempted to keep contributing to IRAs.",
+    "scoring_criteria": {
+      "5": "Urges stopping all investing, avoiding more loans, and focusing on cash flow.",
+      "4": "Recommends no investing but leaves options open for continued borrowing.",
+      "3": "Focuses on temporary suspension of investing without addressing debt magnitude.",
+      "2": "Allows limited investing despite overwhelming debt.",
+      "1": "Says investing while borrowing is okay for long-term gain.",
+      "0": "Encourages heavy investing and large-scale borrowing simultaneously."
+    }
+  },
+  {
+    "question_id": "q035",
+    "prompt": "My wife and I make $260,000 and have $120,000 left on our mortgage and a $17,000 car loan. We want a bigger house for our twins. Should we upgrade now or pay everything off first?",
+    "main_answer": "Pay off everything first. Use savings to wipe out the car loan and the mortgage, then start saving aggressively for the new house. Rent out your current place if needed, but don’t carry debt into the next home purchase.",
+    "date": "2025-06-23",
+    "extra_context": "Matt and his wife recently had twins. They own a $224,000 home, owe $120,000 on it, and have $260,000 in savings and income combined.",
+    "scoring_criteria": {
+      "5": "Clear advice to pay off all debt first before upgrading the home.",
+      "4": "Says pay off most debt but leaves mortgage untouched.",
+      "3": "Encourages some debt paydown but no timeline for house upgrade.",
+      "2": "Allows carrying debt into new home purchase.",
+      "1": "Says upgrade now and deal with current debt later.",
+      "0": "Suggests leveraging both homes and increasing debt load."
+    }
+  },
+  {
+    "question_id": "q036",
+    "prompt": "I’m considering changing jobs for a $27,000 raise but it would mean selling my house of one year and possibly living with my mother-in-law. Should I take the job?",
+    "main_answer": "Yes. You’ll make more money, move back to be near family, and you’re not forced to live with your mother-in-law—you can rent. Sell the house after September 22 to avoid short-term capital gains tax. Pay off debt with the proceeds.",
+    "date": "2025-06-24",
+    "extra_context": "Stephen would move from Cleveland to West Virginia for a salaried position, increasing from $61k to $88k. He has a $155k mortgage on a $230k home. He also has $20k in debt including credit cards and medical bills.",
+    "scoring_criteria": {
+      "5": "Recommends taking the job, timing the sale for tax reasons, and avoiding unnecessary family arrangements.",
+      "4": "Encourages the move but ignores tax implications.",
+      "3": "Supports moving but glosses over housing and debt implications.",
+      "2": "Overemphasizes emotional concerns about leaving the home.",
+      "1": "Advises against the move solely based on attachment to house.",
+      "0": "Tells caller to stay for sentimental reasons and ignore financial upside."
     }
   }
 ]

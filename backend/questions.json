@@ -133,5 +133,125 @@
       "1": "Poor grasp or risky suggestion.",
       "0": "Completely wrong or off-topic."
     }
+  },
+  {
+    "question_id": "q026",
+    "prompt": "I'm 47, divorced, and trying to pay off $10,000 in credit card debt while living paycheck to paycheck. Should I pull $10,000 from my Roth IRA to pay off my credit cards?",
+    "main_answer": "Please don't do that. If you take that money out of the Roth IRA, you're going to rob all of the future growth and you'll likely pay penalties. It also doesn't change the behavior that got you into the debt. Instead, sell your company stock, use some savings, and increase your income. Consider getting a roommate, pausing retirement contributions, and picking up extra work like Ubering. This needs to be your number one priority.",
+    "date": "2025-06-13",
+    "extra_context": "She makes $2,200/month and just got bumped to 40 hours/week. She has $2,200 in savings, $1,500 in stock, and a $1,200 mortgage. Her car is paid off.",
+    "scoring_criteria": {
+      "5": "Do not touch the Roth IRA, instead pay down debt with extra work, use savings/stock, and cut expenses. Aligns fully with the show's advice.",
+      "4": "Strongly advises against using the Roth IRA, but lacks the urgency or full scope of income-boosting measures.",
+      "3": "Mentions not using the Roth IRA but lacks clear alternatives or omits key advice on behavior change and budgeting.",
+      "2": "Suggests partial withdrawal from IRA or ambiguous alternatives.",
+      "1": "Advocates for using the Roth IRA as the best or only option.",
+      "0": "Encourages full Roth IRA withdrawal without any context or caution."
+    }
+  },
+  {
+    "question_id": "q027",
+    "prompt": "I'm newly engaged after 7 years together and want a big wedding, but I feel guilty since we plan to buy a house in two years. Should I still have the wedding I want?",
+    "main_answer": "Yes, have a wedding. Tell your partner what you want, even if it feels embarrassing. Set a budget for the wedding and put anything beyond that toward the house. Choose guilt over resentment. It’s just a math problem—buying the house might be delayed six months, but that’s life.",
+    "date": "2025-06-14",
+    "extra_context": "She wants to celebrate with family who live in another state, and has been frugal her whole life. She is feeling tension between desires and financial planning.",
+    "scoring_criteria": {
+      "5": "Encourages a modest wedding within a budget and postponing the house purchase slightly if needed. Emphasizes communication and compromise.",
+      "4": "Supports the wedding but lacks financial planning details or doesn't mention budgeting explicitly.",
+      "3": "Says the wedding is okay but doesn’t address the house tradeoff or emotional dynamics.",
+      "2": "Suggests forgoing the wedding entirely to save for the house.",
+      "1": "Dismisses her feelings and prioritizes the house with no compromise.",
+      "0": "Recommends going into debt for a lavish wedding."
+    }
+  },
+  {
+    "question_id": "q028",
+    "prompt": "I’m worried I bought too much house a year ago and am considering selling. Should I sell now?",
+    "main_answer": "No, nothing's on fire. Your mortgage is 31% of your take-home pay—not ideal, but manageable. You love the home and you're not in a crisis. Keep paying it down, and consider refinancing to a 15-year mortgage down the line. Stay put unless your financial situation drastically changes.",
+    "date": "2025-06-15",
+    "extra_context": "she earns $95,000, has a fully funded 3-month emergency fund, and owes $256,000 on a $340,000 home now worth $435,000. She loves the house but wants to follow Ramsey steps correctly.",
+    "scoring_criteria": {
+      "5": "Recommends keeping the home, outlines no urgency to sell, suggests paying it down and eventually refinancing.",
+      "4": "Generally advises staying but lacks clarity on income ratio or future planning.",
+      "3": "Neutral stance with minimal justification either way.",
+      "2": "Suggests selling without strong financial reason.",
+      "1": "Recommends selling due to guilt or regret without assessing numbers.",
+      "0": "Advises panic-selling with no context or evaluation."
+    }
+  },
+  {
+    "question_id": "q029",
+    "prompt": "My brother wants to sell his half of our co-owned property. I’d like to keep it as a rental but don’t have the cash to buy him out. Should I borrow $65,000 to buy his half?",
+    "main_answer": "No, don’t borrow. You’re not in a position to invest in real estate while you still have a personal mortgage. Work on paying off your own home first and maybe work out a rental agreement with your brother for a few years until you can buy him out.",
+    "date": "2025-06-16",
+    "extra_context": "Mitch still owes $105,000 on his own home, has no other debt, and makes just under $70,000/year. He wants to invest for his kids' future.",
+    "scoring_criteria": {
+      "5": "Firmly advises against borrowing for real estate while still owing on personal mortgage, encourages paying off debt first.",
+      "4": "Advises against borrowing but without strong emphasis on current obligations.",
+      "3": "Warns vaguely but lacks concrete steps or alternatives.",
+      "2": "Says borrowing is okay with disclaimers.",
+      "1": "Encourages borrowing as the primary or only option.",
+      "0": "Strongly promotes borrowing and disregards existing mortgage."
+    }
+  },
+    {
+    "question_id": "q030",
+    "prompt": "My dad took out a $60,000 Parent PLUS loan for my college and now says I’m responsible for it, even though I never agreed to that. Should I start paying it?",
+    "main_answer": "No, it’s not your debt. You never agreed to repay it and it's solely in your father’s name. He’s rewriting history to offload his financial burden on you. You’re not responsible, and if it costs you the relationship, that's on him—not you.",
+    "date": "2025-06-17",
+    "extra_context": "He is 28, a state trooper. He and his wife make $8,000/month and have already paid down some debt. His father blames his mother and refuses adult conversation about the loan.",
+    "scoring_criteria": {
+      "5": "Affirms Jordan is not responsible, supports clear boundaries and emotional detachment.",
+      "4": "Says Jordan probably doesn’t owe the loan but leaves room for guilt.",
+      "3": "Acknowledges Jordan's dilemma but suggests partial payment.",
+      "2": "Encourages paying some of the loan to avoid conflict.",
+      "1": "Tells him to take on the debt for peace in the family.",
+      "0": "Insists he is legally and morally responsible for the loan."
+    }
+  },
+  {
+    "question_id": "q031",
+    "prompt": "I was gifted $3,000 by my grandparents for education or investment. I put it into ETFs years ago and now it’s grown to $4,500. Should I use it to pay down debt?",
+    "main_answer": "If you follow through on your debt-free plan and then invest more going forward, yes—using it to become debt-free is consistent with the spirit of the gift. But don’t use it irresponsibly or it dishonors the intention.",
+    "date": "2025-06-18",
+    "extra_context": "She has $40,000 in debt and is newly on Baby Step 2. His grandfather only stipulated that the money be used for education or investment, not spent frivolously.",
+    "scoring_criteria": {
+      "5": "Allows use for debt only if it’s part of a larger plan to invest and change behavior.",
+      "4": "Supports paying debt but omits emphasis on follow-through.",
+      "3": "Suggests paying debt without tying it back to investment goals.",
+      "2": "Says use it now without regard to gift intent.",
+      "1": "Encourages spending it on non-educational, non-investment items.",
+      "0": "Suggests cashing out and blowing the money."
+    }
+  },
+  {
+    "question_id": "q032",
+    "prompt": "I’m 24, recently graduated, and could be debt-free next month if I cashed out my $3,000 IRA. Should I do it?",
+    "main_answer": "No, don’t do it. You’ll lose money to taxes and penalties. Instead, go berserker for 60 days—pick up extra jobs like Uber and sell stuff to get that last $5,000 paid off. Sprint to the end.",
+    "date": "2025-06-19",
+    "extra_context": "He has reduced his $60,000 in debt down to the last $5,000. He and his wife are tempted to cash out his old 401k rollover to finish faster.",
+    "scoring_criteria": {
+      "5": "Urges not touching retirement, encourages hard work and final push.",
+      "4": "Advises against withdrawal but lacks energy or urgency.",
+      "3": "Suggests delay but no clear path to finish debt.",
+      "2": "Neutral or leans toward cashing out if convenient.",
+      "1": "Encourages early withdrawal with little concern for consequences.",
+      "0": "Strongly recommends cash-out with no regard for future or penalties."
+    }
+  },
+  {
+    "question_id": "q033",
+    "prompt": "I’m recently divorced, selling my house, and work remotely. I’ll have over $300,000 cash—should I rent, live with family, or take a job as a sorority house director for free lodging?",
+    "main_answer": "Don’t buy a home yet. Wait six months to a year. If the sorority house director role is an adventure and not about clinging to your daughter, do it. Otherwise, just rent a nice one-bedroom and take time to heal.",
+    "date": "2025-06-20",
+    "extra_context": "She is 48, makes $105,000/year, will have $315,000 in cash and $250,000 in retirement savings after her divorce. Her daughter is in college near the sorority house.",
+    "scoring_criteria": {
+      "5": "Advises delay on home purchase, focuses on healing and independence, allows adventure if healthy.",
+      "4": "Supports waiting but omits mental/emotional health discussion.",
+      "3": "Leans toward sorority house without checking for boundaries.",
+      "2": "Minimizes post-divorce healing and rushes into housing decision.",
+      "1": "Recommends immediate home purchase with no pause.",
+      "0": "Encourages co-dependency or emotionally driven housing moves."
+    }
   }
 ]

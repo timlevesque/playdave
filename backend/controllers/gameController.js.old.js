@@ -15,8 +15,8 @@ function getQuestions() {
     return JSON.parse(fs.readFileSync(path.join(__dirname, '../questions.json')));
 }
 
-function getTodayQuestion(dateOverride) {
-    const today = dateOverride || getTodayDate();
+function getTodayQuestion() {
+    const today = getTodayDate();
     const questions = getQuestions(); // Get fresh questions data
     
     console.log(`Current date: ${today}`);
@@ -45,7 +45,7 @@ exports.getQuestion = (req, res) => {
 
 
 exports.submitAnswer = async (req, res) => {
-    const todayQuestion = getTodayQuestion(req.body.localDate);
+    const todayQuestion = getTodayQuestion();
     
     if (!todayQuestion) {
         return res.status(404).json({ error: 'No question found for today.' });
@@ -69,7 +69,7 @@ Only return a number between 0 and 10000 with variance of 1.`;
     const score = parseInt(response.choices[0].message.content.match(/\d+/)[0]);
 
     const submission = new Submission({
-        date: req.body.localDate || getTodayDate(),
+        date: getTodayDate(),
         question_id: todayQuestion.question_id,
         username,
         userAnswer,

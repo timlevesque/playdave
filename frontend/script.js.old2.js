@@ -106,7 +106,7 @@ function submitAnswer() {
     fetch('/api/game/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: fullName, userAnswer, localDate: getLocalDateString() })
+        body: JSON.stringify({ username: fullName, userAnswer })
     })
     .then(res => {
         if (!res.ok) {

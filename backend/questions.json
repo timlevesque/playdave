@@ -286,10 +286,10 @@
   },
   {
     "question_id": "q036",
-    "prompt": "I’m considering changing jobs for a $27,000 raise but it would mean selling my house of one year and possibly living with my mother-in-law. Should I take the job?",
-    "main_answer": "Yes. You’ll make more money, move back to be near family, and you’re not forced to live with your mother-in-law—you can rent. Sell the house after September 22 to avoid short-term capital gains tax. Pay off debt with the proceeds.",
+    "prompt": "I'm considering changing jobs for a $27,000 raise but it would mean selling my house of one year and possibly living with my mother-in-law. Should I take the job?",
+    "main_answer": "Yes. You'll make more money, move back to be near family, and you're not forced to live with your mother-in-law—you can rent. Sell the house after September 22 to avoid short-term capital gains tax. Pay off debt with the proceeds.",
     "date": "2025-06-24",
-    "extra_context": "Stephen would move from Cleveland to West Virginia for a salaried position, increasing from $61k to $88k. He has a $155k mortgage on a $230k home. He also has $20k in debt including credit cards and medical bills.",
+    "extra_context": "I would move from Cleveland to West Virginia for a salaried position, increasing from $61k to $88k. I have a $155k mortgage on a $230k home. I also have $20k in debt including credit cards and medical bills.",
     "scoring_criteria": {
       "5": "Recommends taking the job, timing the sale for tax reasons, and avoiding unnecessary family arrangements.",
       "4": "Encourages the move but ignores tax implications.",
@@ -304,7 +304,7 @@
     "prompt": "I'm debt-free with $45,000 saved for a house. Should I invest this money or keep it in savings?",
     "main_answer": "Put the money in a high-yield savings account or CD. Don't invest money you're saving for a house unless the timeline is five years or more. Since you're actively house hunting and ready to jump on the right opportunity, keep it out of the market. It's not melting ice when you're getting ready to use the money soon. You're not doing the wrong thing by keeping house-buying money liquid.",
     "date": "2025-06-25",
-    "extra_context": "The caller is debt-free with stable income but paying premium rent due to job requirements. They're actively watching the housing market and learning their area.",
+    "extra_context": "I'm debt-free with stable income but paying premium rent due to job requirements. I'm actively watching the housing market and learning my area.",
     "scoring_criteria": {
       "5": "Recommends high-yield savings account or CD for house fund, explains timeline principle (don't invest money needed within 5 years), affirms caller is making right choice",
       "4": "Recommends keeping money liquid for house purchase, mentions high-yield savings, good understanding of timeline but minor gaps in explanation",
@@ -319,7 +319,7 @@
     "prompt": "I'm a disabled veteran with $50,000 in savings and no IRAs. How should I invest this money?",
     "main_answer": "Find some kind of work you can do from home or self-employed work that you can control - hours, stress level, volume. This would give you earned income needed for Roth IRA contributions. Keep part of the $50,000 as your emergency fund and invest the rest. Without earned income, work with a SmartVestor Pro to invest in low-turnover mutual funds (good for taxable accounts). Consider coding, contract work, or other self-employed options designed around your needs.",
     "date": "2025-06-26",
-    "extra_context": "Caller has PTSD from military service, receives substantial disability payments, and has been struggling to transition to civilian work. The hosts emphasize dignity in work and finding something tailored to her specific needs.",
+    "extra_context": "I have PTSD from military service, receive substantial disability payments, and have been struggling to transition to civilian work. The hosts emphasize dignity in work and finding something tailored to my specific needs.",
     "scoring_criteria": {
       "5": "Recommends finding suitable work-from-home income for Roth IRA eligibility, suggests SmartVestor Pro for low-turnover mutual funds, addresses both investing and income creation with sensitivity to PTSD",
       "4": "Good advice on creating income and investing, mentions key concepts but may miss some specifics about low-turnover funds or Roth IRA requirements",
@@ -334,7 +334,7 @@
     "prompt": "I have $32,000 in debt and want to invest for retirement and buy a house. What should I prioritize?",
     "main_answer": "Follow the baby steps in order: 1) Keep your $1,200 starter emergency fund, 2) Cut up credit cards and attack the $7,000 credit card debt first, then student loans, 3) Build fully funded emergency fund of 3-6 months expenses, 4) Then invest 15% in retirement, 5) Then save for house down payment. Don't do smart things at the wrong time - buying a house while you have debt and no savings turns a smart thing into a dumb thing. Use Every Dollar budgeting app to track expenses.",
     "date": "2025-06-27",
-    "extra_context": "New graduate excited about multiple financial goals but needs guidance on proper sequencing. The hosts emphasize not celebrating graduation by making financial mistakes and following the baby steps order.",
+    "extra_context": "I'm a new graduate excited about multiple financial goals but need guidance on proper sequencing. The hosts emphasize not celebrating graduation by making financial mistakes and following the baby steps order.",
     "scoring_criteria": {
       "5": "Clearly explains baby steps order, emphasizes paying off debt first before investing or house buying, mentions cutting up credit cards, explains why order matters",
       "4": "Good understanding of debt payoff priority, mentions most key steps but may miss some details about emergency fund timing",
@@ -349,7 +349,7 @@
     "prompt": "I'm 21 with $27,000 saved and want to buy a Mustang for $20-25,000. Is this smart?",
     "main_answer": "You're in range ratio-wise since you'd pay cash and stay debt-free, and total vehicles shouldn't exceed 50% of annual income. However, since you have a company car and this would be a weekend toy, consider waiting. The $20,000 represents most of your net worth. Consider delaying 1-2 years to see what other goals emerge (house, wedding, etc.). If you buy, choose carefully for resale value in case priorities change. Save up additional cash beyond your $14,000 emergency fund first.",
     "date": "2025-06-28",
-    "extra_context": "Young person making smart financial choices, graduating debt-free, with good income lined up. The hosts appreciate the responsible approach but suggest considering opportunity cost since it would be mostly a toy car.",
+    "extra_context": "I'm making smart financial choices, graduating debt-free, with good income lined up. The hosts appreciate my responsible approach but suggest considering opportunity cost since it would be mostly a toy car.",
     "scoring_criteria": {
       "5": "Acknowledges the purchase is within acceptable ratios, but recommends waiting due to opportunity cost, suggests saving additional funds beyond emergency fund, emphasizes resale considerations",
       "4": "Good advice about ratios and waiting, mentions most key points but may miss some details about emergency fund protection",
@@ -364,7 +364,7 @@
     "prompt": "I'm almost debt-free but struggling to get motivated about saving $25,000 for an emergency fund. What should I do?",
     "main_answer": "You should be highly motivated because your life IS an emergency right now - you've been out on short-term disability three times recently. With your income level ($170,000 when both working, about $110,000 from husband), you can save $25,000 in 6-8 months, not a full year. You make $14,000 per month when both working. With no debt payments, you can knock this out quickly. Your frequent disability episodes prove you desperately need an emergency fund.",
     "date": "2025-06-29",
-    "extra_context": "Older couple with good income but recent history of income disruption due to disability. The wife is struggling with motivation for emergency fund despite clear need based on her situation.",
+    "extra_context": "My husband and I have good income but I've had recent history of income disruption due to disability. I'm struggling with motivation for the emergency fund despite clear need based on my situation.",
     "scoring_criteria": {
       "5": "Points out that caller's situation proves need for emergency fund, calculates realistic timeline based on income, emphasizes urgency given disability history",
       "4": "Recognizes need for emergency fund given disability situation, provides good timeline estimate but may miss some motivational aspects",
@@ -379,7 +379,7 @@
     "prompt": "I'm 28, completely debt-free including my house, with emergency fund and retirement set up. I'm bored with just saving and want to make money faster. What should I do?",
     "main_answer": "You're in danger of messing all this up. The fastest way to get rich is boring. Don't go screwing around with get-rich-quick schemes trying to be cool, or you'll lose all the progress you've made. Your smart broke friends will make fun of your tortoise plan, but they're the ones with nothing. Be boring, be steady like the tortoise - he won the race. Put your money in basic, predictable investments and work with a smart investor pro for accountability so you don't make bad decisions out of greed.",
     "date": "2025-06-30",
-    "extra_context": "Nathan had cleared out all his checking and savings accounts to become 100% debt-free including his house at age 28, which is extremely rare. He was investing in two Roth accounts and doing 10% in his TSP (Thrift Savings Plan). He felt lost about where to invest next and found just saving money boring.",
+    "extra_context": "I cleared out all my checking and savings accounts to become 100% debt-free including my house at age 28, which is extremely rare. I'm investing in two Roth accounts and doing 10% in my TSP (Thrift Savings Plan). I feel lost about where to invest next and find just saving money boring.",
     "scoring_criteria": {
       "5": "Emphasizes staying boring and steady with investments, warns against get-rich-quick schemes, recommends working with a smart investor pro, acknowledges the temptation to overcomplicate wealth building",
       "4": "Recommends boring/steady investing approach, warns against risky investments, may miss some details about working with professionals",
@@ -394,7 +394,7 @@
     "prompt": "I have a project car I've owned for three years but haven't made progress on. I'm paying off debt and have new career goals. Should I sell it?",
     "main_answer": "Your priorities have changed. When you bought the car three years ago, you didn't have the educational and career goals you have now. The car has gone further down on your priority list, and you'd rather be working on your educational goals than spending time and effort on the car. Since your goals have changed and the car is no longer a priority, sell it. There's a project car on every corner.",
     "date": "2025-07-01",
-    "extra_context": "Jonathan's 1986 Nissan 300ZX had gotten dinged up and depreciated because people had been driving it. He needed to do a body rebuild on it. The time and effort required for the car project was competing with his new educational and career goals, and he'd rather focus on those instead.",
+    "extra_context": "My 1986 Nissan 300ZX has gotten dinged up and depreciated because people have been driving it. I need to do a body rebuild on it. The time and effort required for the car project is competing with my new educational and career goals, and I'd rather focus on those instead.",
     "scoring_criteria": {
       "5": "Clearly identifies that priorities have changed, explains that goals evolved since buying the car, recommends selling because educational goals are now more important, mentions that project cars are available when priorities change",
       "4": "Recognizes changed priorities and recommends selling, but may not fully explain the reasoning about competing goals",
@@ -409,7 +409,7 @@
     "prompt": "I'm 27, make $80K driving trucks, and want to become a deca-millionaire. Should I switch careers or stick with real estate investing and single stocks?",
     "main_answer": "You can achieve your goal following the principles. You're already investing 15% and should have 3-5 million in retirement accounts plus a pension by retirement, which is great. You can do real estate investing once you have a paid-for house by saving cash - don't take on more debt. But more importantly, if you work 40 years in a job you don't like, even with $3 million it won't be worth it. You should consider doing something you love - maybe financial coaching since you already help people for free and love talking about money. Do both your trucking and build a side hustle, then lean into what you were put on this planet to do.",
     "date": "2025-07-02",
-    "extra_context": "Brandon's goal was $10 million. He worked 10-12 hour days driving semi truck locally and was at the top of his industry salary-wise, currently in baby steps 4 and 6. He calculated he should have 3-5 million in retirement accounts plus a pension by retirement. He already helped people with money for free because he loved talking about it. He didn't dislike trucking but it wasn't his passion, and he was unsure if he wanted to do it for 40 years.",
+    "extra_context": "My goal is $10 million. I work 10-12 hour days driving semi truck locally and am at the top of my industry salary-wise, currently in baby steps 4 and 6. I calculated I should have 3-5 million in retirement accounts plus a pension by retirement. I already help people with money for free because I love talking about it. I don't dislike trucking but it isn't my passion, and I'm unsure if I want to do it for 40 years.",
     "scoring_criteria": {
       "5": "Confirms the $10 million goal is achievable, explains the math on retirement investing, mentions real estate with cash only after house is paid off, strongly emphasizes finding work you love and building a side hustle, warns against working 40 years in a job you don't like",
       "4": "Addresses the wealth-building strategy and career change aspects, may miss some details about the emotional/purpose side",
@@ -424,7 +424,7 @@
     "prompt": "I make $350K, have $3M invested, and took a 30-year mortgage at 3.2% to invest the difference at 12-13% returns. Should I pay off my mortgage?",
     "main_answer": "Yes, you should write the check and pay off the house today. You've done really well and proven that you can build wealth while leveraging debt, but it always works until it doesn't. You're an exception to the rule with your crazy income and 30 years of discipline. You can out-earn any poor decisions with your $350K income. Every financial advisor will tell you to do a 30-year over a 15-year so you can give them more money to invest - they're biased. The borrower is slave to the lender, and being debt-free changes your value system, decision-making, and identity. There's a physical weight with debt.",
     "date": "2025-07-03",
-    "extra_context": "Joseph is 48 and started investing at 16 with $500, being disciplined for 30 years and maxing out his 401k for 25 years. He and his wife make $350K total - over $100K is a guaranteed pension for life from his first career (he's already retired from it), and he makes over $100K in his new job. He has a six-month emergency fund in cash in his safe at home, plus a car payment at 3% interest. He has 20 years left on his mortgage with only $900 principal and $1,000 property taxes in his payment. His financial planner recommended the 30-year mortgage strategy 10 years ago.",
+    "extra_context": "I'm 48 and started investing at 16 with $500, being disciplined for 30 years and maxing out my 401k for 25 years. My wife and I make $350K total - over $100K is a guaranteed pension for life from my first career (I'm already retired from it), and I make over $100K in my new job. I have a six-month emergency fund in cash in my safe at home, plus a car payment at 3% interest. I have 20 years left on my mortgage with only $900 principal and $1,000 property taxes in my payment. My financial planner recommended the 30-year mortgage strategy 10 years ago.",
     "scoring_criteria": {
       "5": "Recommends paying off the house, acknowledges his success but explains that leveraging debt 'works until it doesn't', mentions the bias of financial advisors, explains the philosophical reasons about borrower being slave to lender and the psychological benefits of being debt-free",
       "4": "Recommends paying off the house and acknowledges his success, may miss some of the deeper philosophical reasoning",

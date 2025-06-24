@@ -39,7 +39,8 @@ exports.getQuestion = (req, res) => {
         question_id: todayQuestion.question_id,
         prompt: todayQuestion.prompt,
         main_answer: todayQuestion.main_answer,
-        date: todayQuestion.date
+        date: todayQuestion.date,
+        extra_context: todayQuestion.extra_context
     });
 };
 

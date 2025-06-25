@@ -10,6 +10,7 @@ async function loadQuestion() {
         const data = await res.json();
 
         document.getElementById('prompt').innerText = data.prompt;
+        document.getElementById('extra-context').innerText = data.extra_context || 'No additional context provided';
         localStorage.setItem('questionId', data.question_id);  // Store current question ID
 
         checkIfUserAlreadyAnswered();
@@ -512,4 +513,10 @@ const userCircle = document.getElementById('user-circle');
         }
     });
 }
+
+function toggleContext() {
+    const contextBox = document.getElementById('extra-context');
+    contextBox.classList.toggle('hidden');
+}
+
 

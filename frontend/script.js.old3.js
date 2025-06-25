@@ -308,44 +308,37 @@ async function loadLeaderboard() {
             return;
         }
 
-        let uniqueScores = [];
+        data.forEach((entry, index) => {
+            const li = document.createElement('li');
+            li.className = 'bg-white rounded-xl shadow-md px-4 py-3 flex justify-between items-center';
 
-data.forEach((entry, index) => {
-    const li = document.createElement('li');
-    li.className = 'bg-white rounded-xl shadow-md px-4 py-3 flex justify-between items-center';
+            if (entry.username === currentUser) {
+                li.classList.add('border-2', 'border-blue-600');
+            }
 
-    if (entry.username === currentUser) {
-        li.classList.add('border-2', 'border-blue-600');
-    }
+            // LEFT: Name + Award
+            const left = document.createElement('div');
+            left.className = 'flex items-center gap-2 text-gray-800 font-medium';
 
-    const left = document.createElement('div');
-    left.className = 'flex items-center gap-2 text-gray-800 font-medium';
+            if (index < 3) {
+                const medal = document.createElement('span');
+                medal.textContent = medals[index];
+                left.appendChild(medal);
+            }
 
-    // Determine if this is a new score we haven't ranked yet
-    if (!uniqueScores.includes(entry.score)) {
-        uniqueScores.push(entry.score);
-    }
+            const name = document.createElement('span');
+            name.textContent = entry.username;
+            left.appendChild(name);
 
-    // Assign medals only for the top 3 unique scores
-    const medalIndex = uniqueScores.indexOf(entry.score);
-    if (medalIndex >= 0 && medalIndex < medals.length) {
-        const medal = document.createElement('span');
-        medal.textContent = medals[medalIndex];
-        left.appendChild(medal);
-    }
+            // RIGHT: Score
+            const points = document.createElement('span');
+            points.className = 'text-blue-600 font-bold';
+            points.textContent = `${entry.score} Dave Bucks`;
 
-    const name = document.createElement('span');
-    name.textContent = entry.username;
-    left.appendChild(name);
-
-    const points = document.createElement('span');
-    points.className = 'text-blue-600 font-bold';
-    points.textContent = `${entry.score} Dave Bucks`;
-
-    li.appendChild(left);
-    li.appendChild(points);
-    board.appendChild(li);
-});
+            li.appendChild(left);
+            li.appendChild(points);
+            board.appendChild(li);
+        });
     } catch (err) {
         console.error("Failed to load leaderboard:", err);
     }

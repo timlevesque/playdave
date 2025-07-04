@@ -118,5 +118,95 @@
       "1": "Poor advice that doesn't consider his unique circumstances",
       "0": "Wrong advice or encourages keeping the debt"
     }
+  },
+  {
+    "question_id": "q046",
+    "prompt": "I'm 19, make $30,000 a year, and drive a 300,000-mile car that still runs well. I want to know if I should save up $30,000 to buy a cool muscle car with cash, or get another cheap used car and invest the rest. What should I do?",
+    "main_answer": "You should avoid spending more than half your annual income on a vehicle. A $30,000 car is too expensive for your current income. You should buy a reliable used car for under $15,000, continue building your emergency fund, and begin investing after that.",
+    "context": "no context this time",
+    "scoring_criteria": {
+      "5": "Clearly recommends a car under $15,000, avoids expensive purchase, mentions emergency fund and/or investing.",
+      "4": "Recommends avoiding a $30,000 car and suggests a cheaper option, even if emergency fund/investing is not mentioned.",
+      "3": "General suggestion to be cautious with spending or prioritize savings, but lacks specific car or income rules.",
+      "2": "Says a cheaper car might be better, but implies the $30K car could be okay or doesn’t link to income.",
+      "1": "Suggests buying the $30,000 car is fine or doesn’t provide meaningful financial advice.",
+      "0": "No answer or completely irrelevant response."
+    },
+    "date": "2025-07-04"
+  },
+  {
+    "question_id": "q047",
+    "prompt": "I'm in Baby Step 2, have $70,000 in debt, and my landlord is selling the condo I'm renting. I can either buy it under market value or stay as a tenant with higher rent. Should I buy the condo?",
+    "main_answer": "No, you should not buy the condo. You're still in Baby Step 2 with a lot of debt and no emergency fund or down payment. Buying now would create financial strain. You should finish paying off debt first, save an emergency fund and down payment, then consider buying.",
+    "context": "no context this time",
+    "scoring_criteria": {
+      "5": "Clearly advises against buying, emphasizes debt and lack of emergency fund, and aligns with Ramsey Baby Steps.",
+      "4": "Says you shouldn’t buy and references one of the correct reasons (debt, no savings, not ready).",
+      "3": "Generally advises caution or suggests waiting, but lacks clarity or Ramsey-specific rationale.",
+      "2": "Leans toward buying but acknowledges some risks or concerns.",
+      "1": "Says buying is okay now or focuses only on short-term cost benefits.",
+      "0": "No answer or off-topic."
+    },
+    "date": "2025-07-05"
+  },
+  {
+    "question_id": "q048",
+    "prompt": "I'm 23 and have worked several jobs. I find myself becoming resentful at work, feeling undervalued. I wonder if it’s a pattern with me or bad luck with jobs. What should I consider?",
+    "main_answer": "You should reflect more deeply on your own expectations and patterns. Resentment may stem from unmet emotional needs or misplaced expectations about fulfillment from work. You should ground your identity outside of work and focus on becoming excellent in one field over time, rather than chasing feelings of fulfillment.",
+    "context": "no context this time",
+    "scoring_criteria": {
+      "5": "Encourages self-reflection, detaching identity from work, and committing to long-term mastery.",
+      "4": "Highlights importance of mindset or emotional patterns in Caleb’s discontent.",
+      "3": "Suggests therapy, reflection, or looking inward, but lacks specificity.",
+      "2": "Attributes the problem mainly to bad jobs or external factors.",
+      "1": "Says he should just switch jobs again without any internal reflection.",
+      "0": "Irrelevant or no advice."
+    },
+    "date": "2025-07-06"
+  },
+  {
+    "question_id": "q049",
+    "prompt": "My spouse and I are in Baby Step 2 with $85,000 in debt and expecting our first child. Should we sell our house (with $100k equity) to wipe out our debt and rent? What should we do?",
+    "main_answer": "Yes, selling your house is a smart move. With a baby coming and limited income, wiping out all debt and having an emergency fund gives you breathing room and a clean start. But you must also commit to changing your financial habits so you don’t fall back into debt.",
+    "context": "no context this time",
+    "scoring_criteria": {
+      "5": "Recommends selling the house, becoming debt-free, and emphasizes behavior change.",
+      "4": "Recommends selling the house to pay debt and mentions baby or stability.",
+      "3": "Supports selling but omits key reasoning (e.g., behavior change, emergency fund).",
+      "2": "Suggests keeping house or questions selling without offering a better alternative.",
+      "1": "Opposes selling and ignores the debt burden and new baby.",
+      "0": "No answer or unrelated advice."
+    },
+    "date": "2025-07-07"
+  },
+  {
+    "question_id": "q050",
+    "prompt": "My ex-spouse is dying. I'm the beneficiary of a $750,000 term life policy. Should I expect to pay for the funeral, though their parents are arranging it? What should I do?",
+    "main_answer": "Legally, you don’t have to pay, but relationally and for your children’s sake, it may be wise to cover the funeral. It avoids family conflict and ensures peace for you and your kids. The cost is small compared to the life insurance, and you should prioritize emotional peace over money.",
+    "context": "no context this time",
+    "scoring_criteria": {
+      "5": "Says she should pay for peace/family unity even though she’s not obligated.",
+      "4": "Acknowledges she isn’t required to pay but suggests it’s a good idea for relational reasons.",
+      "3": "Is unsure or leans toward paying but doesn’t explain why.",
+      "2": "Says she shouldn’t pay and offers little relational consideration.",
+      "1": "Emphasizes keeping all money with no regard for relationships or kids.",
+      "0": "Off-topic or no answer."
+    },
+    "date": "2025-07-08"
+  },
+  {
+    "question_id": "q051",
+    "prompt": "I found a house that fits my budget and is being offered a 5.5% interest rate, but it’s ready before my lease ends. Another home finishes later, but the interest rate is unknown. Should I rush to buy now or wait?",
+    "main_answer": "You are not ready to buy. You’re only putting 5% down on a 30-year mortgage, which indicates you should pause and save more. A slight increase in rates is less important than entering homeownership from a strong financial position—10% down on a 15-year fixed mortgage with affordable payments.",
+    "context": "no context this time",
+    "scoring_criteria": {
+      "5": "Clearly says he shouldn’t buy now, references low down payment and bad terms.",
+      "4": "Advises waiting due to weak financials, even if not fully aligned with Ramsey specifics.",
+      "3": "Suggests caution or saving more, but lacks detail or confidence.",
+      "2": "Leans toward buying now to 'lock the rate' despite weak down payment.",
+      "1": "Recommends buying based only on rate or urgency, no mention of financial readiness.",
+      "0": "Irrelevant or no answer."
+    },
+    "date": "2025-07-09"
   }
 ]

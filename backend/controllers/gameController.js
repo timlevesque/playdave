@@ -158,7 +158,7 @@ Compare their answer to the reference answer, highlighting:
 5. if tjhe reference answser contains two differnt points of view, only score on the one that is most relevant to the user answer. But explain both points of view.
 6. Use a friendly and encouraging tone, as if you are a mentor providing constructive feedback.
 
-Your explanation should be constructive and educational, helping the user understand financial concepts better.`;
+Your explanation should be constructive and educational, helping the user understand financial concepts better. Make sure that your anwser does not contradict anything dave ramsey would say.`;
 
         try {
             const response = await openai.chat.completions.create({

@@ -53,13 +53,21 @@ exports.submitAnswer = async (req, res) => {
     }
     
     const { username, userAnswer } = req.body;
-    const prompt = `You are an evaluator for a financial advice game based on dave ramsey principles. Rate the user's advice compared to the reference answer, on a scale from 0 (irrelevant) to 10000 (perfect match in sentiment and recommendation). Points should should be 
+   const prompt = `You are an evaluator for a financial advice game based on Dave Ramsey principles.
+Compare the user's advice to the reference answer and rate how well it matches in **sentiment, tone, and specific recommendations**.
+Use this scale:
+- 9500–10000: Perfect match, almost identical recommendations.
+- 8000–9499: Strong match, minor phrasing or detail differences.
+- 6000–7999: Partial match, some missing or vague points.
+- 4000–5999: Weak match, significant gaps or off-topic elements.
+- 0–3999: Completely irrelevant or opposite advice.
 
 Reference Answer: ${todayQuestion.main_answer}
 
 User Answer: ${userAnswer}
 
-Only return a number between 0 and 10000 with variance of 1.`;
+Only return a single number between 0 and 10000. If the scores feel identical, apply a random offset of ±5–20 points for natural variation.`;
+
 
     const response = await openai.chat.completions.create({
         model: "gpt-4.1-nano",
@@ -155,7 +163,7 @@ Compare their answer to the reference answer, highlighting:
 2. Areas where they missed key points or differed from the reference answer
 3. Specific advice on how they could improve their answer
 4. use 2nd person language (you, your) to address the user directly.
-5. if tjhe reference answser contains two differnt points of view, only score on the one that is most relevant to the user answer. But explain both points of view.
+5. if the reference answser contains two differnt points of view, only score on the one that is most relevant to the user answer. But explain both points of view.
 6. Use a friendly and encouraging tone, as if you are a mentor providing constructive feedback.
 
 Your explanation should be constructive and educational, helping the user understand financial concepts better. Make sure that your anwser does not contradict anything dave ramsey would say.`;

@@ -53,20 +53,35 @@ exports.submitAnswer = async (req, res) => {
     }
     
     const { username, userAnswer } = req.body;
-   const prompt = `You are an evaluator for a financial advice game based on Dave Ramsey principles.
-Compare the user's advice to the reference answer and rate how well it matches in **sentiment, tone, and specific recommendations**.
-Use this scale:
-- 9500–10000: Perfect match, almost identical recommendations.
-- 8000–9499: Strong match, minor phrasing or detail differences.
-- 6000–7999: Partial match, some missing or vague points.
-- 4000–5999: Weak match, significant gaps or off-topic elements.
-- 0–3999: Completely irrelevant or opposite advice.
+        const prompt = `
+        You are a strict evaluator for a financial advice game grounded in Dave Ramsey principles.
 
-Reference Answer: ${todayQuestion.main_answer}
+        Compare the user's response to the reference answer across three categories:
+        1. **Sentiment** — Does the emotional tone match?
+        2. **Tone** — Is the style of delivery consistent (e.g., compassionate, direct)?
+        3. **Specific Recommendations** — Are the same financial strategies and steps included?
 
-User Answer: ${userAnswer}
+        Score the match from **0 to 10,000**, using this scale:
+        - **9500–10000**: Nearly identical; all key elements align.
+        - **8000–9499**: Strong match with only minor phrasing or detail changes.
+        - **6000–7999**: Moderate match; some important ideas are missing or vague.
+        - **4000–5999**: Weak match; major gaps in tone or advice.
+        - **0–3999**: Poor match or wrong advice.
 
-Only return a single number between 0 and 10000. If the scores feel identical, apply a random offset of ±5–20 points for natural variation.`;
+        🧠 Return a **precise, realistic-looking number** Avoid round numbers like those ending in 00, 50, or 000.
+
+        If two responses are nearly identical, add a random offset of **±7–25 points** for variation.
+
+        ---
+        Reference Answer:
+        ${todayQuestion.main_answer}
+
+        User Answer:
+        ${userAnswer}
+
+        Only return a single number between **0 and 10000**. No commentary, no explanation.
+        `;
+
 
 
     const response = await openai.chat.completions.create({

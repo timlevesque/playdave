@@ -192,7 +192,7 @@ Your explanation should be constructive and educational, helping the user unders
 
         try {
             const response = await openai.chat.completions.create({
-                model: "gpt-4.1-nano",
+                model: "gpt-4o",
                 messages: [{ role: "user", content: prompt }],
                 temperature: 0.2,
                 max_tokens: 1000

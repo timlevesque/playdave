@@ -15,22 +15,6 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // Middleware setup
 app.use(cors());
 
-// Restrict end-user access to local Wi-Fi subnet but allow internal server calls
-// Restrict end-user access to local Wi-Fi subnet but allow internal server calls
-app.use((req, res, next) => {
-  const requestIP = req.headers['x-forwarded-for'] || req.ip;
-
-  const isLocalhost = requestIP.includes('127.0.0.1') || requestIP.includes('::1');
-  const isOnWifi = requestIP.includes('172.21.100.');
-
-  if (!isLocalhost && !isOnWifi) {
-    console.warn(`Blocked request from IP: ${requestIP}`);
-    return res.status(403).json({ message: 'Access denied: not on Wi-Fi network' });
-  }
-
-  next();
-});
-
 // Debug middleware to log all requests
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path}`);

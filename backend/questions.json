@@ -3,7 +3,7 @@
     "question_id": "q038",
     "prompt": "I'm a disabled veteran with $50,000 in savings and no IRAs. How should I invest this money?",
     "main_answer": "Find some kind of work you can do from home or self-employed work that you can control - hours, stress level, volume. This would give you earned income needed for Roth IRA contributions. Keep part of the $50,000 as your emergency fund and invest the rest. Without earned income, work with a SmartVestor Pro to invest in low-turnover mutual funds (good for taxable accounts). Consider coding, contract work, or other self-employed options designed around your needs.",
-    "date": "2025-06-26",
+    "date": "2025-08-20",
     "extra_context": "I have PTSD from military service, receive substantial disability payments, and have been struggling to transition to civilian work.",
     "scoring_criteria": {
       "5": "Recommends finding suitable work-from-home income for Roth IRA eligibility, suggests SmartVestor Pro for low-turnover mutual funds, addresses both investing and income creation with sensitivity to PTSD",
@@ -18,7 +18,7 @@
     "question_id": "q039",
     "prompt": "I have $32,000 in debt and want to invest for retirement and buy a house. What should I prioritize?",
     "main_answer": "Follow the baby steps in order: 1) Keep your $1,200 starter emergency fund, 2) Cut up credit cards and attack the $7,000 credit card debt first, then student loans, 3) Build fully funded emergency fund of 3-6 months expenses, 4) Then invest 15% in retirement, 5) Then save for house down payment. Don't do smart things at the wrong time - buying a house while you have debt and no savings turns a smart thing into a dumb thing. Use Every Dollar budgeting app to track expenses.",
-    "date": "2025-06-27",
+    "date": "2025-08-21",
     "extra_context": "I'm a new graduate excited about multiple financial goals but need guidance on proper sequencing.",
     "scoring_criteria": {
       "5": "Clearly explains baby steps order, emphasizes paying off debt first before investing or house buying, mentions cutting up credit cards, explains why order matters",
@@ -33,7 +33,7 @@
     "question_id": "q040",
     "prompt": "I'm 21 with $27,000 saved and want to buy a Mustang for $20-25,000. Is this smart?",
     "main_answer": "You're in range ratio-wise since you'd pay cash and stay debt-free, and total vehicles shouldn't exceed 50% of annual income. However, since you have a company car and this would be a weekend toy, consider waiting. The $20,000 represents most of your net worth. Consider delaying 1-2 years to see what other goals emerge (house, wedding, etc.). If you buy, choose carefully for resale value in case priorities change. Save up additional cash beyond your $14,000 emergency fund first.",
-    "date": "2025-06-28",
+    "date": "2025-08-22",
     "extra_context": "I'm making smart financial choices, graduating debt-free, with good income lined up.",
     "scoring_criteria": {
       "5": "Acknowledges the purchase is within acceptable ratios, but recommends waiting due to opportunity cost, suggests saving additional funds beyond emergency fund, emphasizes resale considerations",
@@ -48,7 +48,7 @@
     "question_id": "q041",
     "prompt": "I'm almost debt-free but struggling to get motivated about saving $25,000 for an emergency fund. What should I do?",
     "main_answer": "You should be highly motivated because your life IS an emergency right now - you've been out on short-term disability three times recently. With your income level ($170,000 when both working, about $110,000 from husband), you can save $25,000 in 6-8 months, not a full year. You make $14,000 per month when both working. With no debt payments, you can knock this out quickly. Your frequent disability episodes prove you desperately need an emergency fund.",
-    "date": "2025-06-29",
+    "date": "2025-08-23",
     "extra_context": "My husband and I have good income but I've had recent history of income disruption due to disability. I'm struggling with motivation for the emergency fund despite clear need based on my situation.",
     "scoring_criteria": {
       "5": "Points out that caller's situation proves need for emergency fund, calculates realistic timeline based on income, emphasizes urgency given disability history",
@@ -63,7 +63,7 @@
     "question_id": "q042",
     "prompt": "I'm 28, completely debt-free including my house, with emergency fund and retirement set up. I'm bored with just saving and want to make money faster. What should I do?",
     "main_answer": "You're in danger of messing all this up. The fastest way to get rich is boring. Don't go screwing around with get-rich-quick schemes trying to be cool, or you'll lose all the progress you've made. Your smart broke friends will make fun of your tortoise plan, but they're the ones with nothing. Be boring, be steady like the tortoise - he won the race. Put your money in basic, predictable investments and work with a smart investor pro for accountability so you don't make bad decisions out of greed.",
-    "date": "2025-06-30",
+    "date": "2025-08-24",
     "extra_context": "I cleared out all my checking and savings accounts to become 100% debt-free including my house at age 28, which is extremely rare. I'm investing in two Roth accounts and doing 10% in my TSP (Thrift Savings Plan). I feel lost about where to invest next and find just saving money boring.",
     "scoring_criteria": {
       "5": "Emphasizes staying boring and steady with investments, warns against get-rich-quick schemes, recommends working with a smart investor pro, acknowledges the temptation to overcomplicate wealth building",
@@ -78,7 +78,7 @@
     "question_id": "q043",
     "prompt": "I have a project car I've owned for three years but haven't made progress on. I'm paying off debt and have new career goals. Should I sell it?",
     "main_answer": "Your priorities have changed. When you bought the car three years ago, you didn't have the educational and career goals you have now. The car has gone further down on your priority list, and you'd rather be working on your educational goals than spending time and effort on the car. Since your goals have changed and the car is no longer a priority, sell it. There's a project car on every corner.",
-    "date": "2025-07-01",
+    "date": "2025-08-25",
     "extra_context": "My 1986 Nissan 300ZX has gotten dinged up and depreciated because people have been driving it. I need to do a body rebuild on it. The time and effort required for the car project is competing with my new educational and career goals, and I'd rather focus on those instead.",
     "scoring_criteria": {
       "5": "Clearly identifies that priorities have changed, explains that goals evolved since buying the car, recommends selling because educational goals are now more important, mentions that project cars are available when priorities change",
@@ -93,7 +93,7 @@
     "question_id": "q044",
     "prompt": "I'm 27, make $80K driving trucks, and want to become a deca-millionaire. Should I switch careers or stick with real estate investing and single stocks?",
     "main_answer": "You can achieve your goal following the principles. You're already investing 15% and should have 3-5 million in retirement accounts plus a pension by retirement, which is great. You can do real estate investing once you have a paid-for house by saving cash - don't take on more debt. But more importantly, if you work 40 years in a job you don't like, even with $3 million it won't be worth it. You should consider doing something you love - maybe financial coaching since you already help people for free and love talking about money. Do both your trucking and build a side hustle, then lean into what you were put on this planet to do.",
-    "date": "2025-07-02",
+    "date": "2025-08-26",
     "extra_context": "My goal is $10 million. I work 10-12 hour days driving semi truck locally and am at the top of my industry salary-wise, currently in baby steps 4 and 6. I calculated I should have 3-5 million in retirement accounts plus a pension by retirement. I already help people with money for free because I love talking about it. I don't dislike trucking but it isn't my passion, and I'm unsure if I want to do it for 40 years.",
     "scoring_criteria": {
       "5": "Confirms the $10 million goal is achievable, explains the math on retirement investing, mentions real estate with cash only after house is paid off, strongly emphasizes finding work you love and building a side hustle, warns against working 40 years in a job you don't like",
@@ -108,7 +108,7 @@
     "question_id": "q045",
     "prompt": "I make $350K, have $3M invested, and took a 30-year mortgage at 3.2% to invest the difference at 12-13% returns. Should I pay off my mortgage?",
     "main_answer": "Yes, you should write the check and pay off the house today. You've done really well and proven that you can build wealth while leveraging debt, but it always works until it doesn't. You're an exception to the rule with your crazy income and 30 years of discipline. You can out-earn any poor decisions with your $350K income. Every financial advisor will tell you to do a 30-year over a 15-year so you can give them more money to invest - they're biased. The borrower is slave to the lender, and being debt-free changes your value system, decision-making, and identity. There's a physical weight with debt.",
-    "date": "2025-07-03",
+    "date": "2025-08-27",
     "extra_context": "I'm 48 and started investing at 16 with $500, being disciplined for 30 years and maxing out my 401k for 25 years. My wife and I make $350K total - over $100K is a guaranteed pension for life from my first career (I'm already retired from it), and I make over $100K in my new job. I have a six-month emergency fund in cash in my safe at home, plus a car payment at 3% interest. I have 20 years left on my mortgage with only $900 principal and $1,000 property taxes in my payment. My financial planner recommended the 30-year mortgage strategy 10 years ago.",
     "scoring_criteria": {
       "5": "Recommends paying off the house, acknowledges his success but explains that leveraging debt 'works until it doesn't', mentions the bias of financial advisors, explains the philosophical reasons about borrower being slave to lender and the psychological benefits of being debt-free",
@@ -123,7 +123,7 @@
     "question_id": "q052",
     "prompt": "I'm 28, hit baby step seven, emergency fund rebuilt. I'm investing, but feel lost and bored about my goal to get more money. What should I do now?",
     "main_answer": "The fastest way to get rich is **boring**, so don't try get-rich-quick schemes like crypto or TikTok real estate. Be **steady, predictable, and diligent** with accounts, making sure they're maximizing. It's recommended to **work with a smart investor pro** for accountability to not get greedy and make bad decisions.",
-    "date": "2025-07-10",
+    "date": "2025-08-28",
     "extra_context": "He deleted checking and savings to be debt-free after paying off his house. He has 6 months emergency saved and invests in Roth accounts and PSP. He feels getting more money is boring.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -138,7 +138,7 @@
     "question_id": "q053",
     "prompt": "I'm on the baby steps and want to go faster. I have a project car untouched for 3 years, but my career and educational goals have changed. Should I sell it?",
     "main_answer": "**Sell it**. His priorities have changed, and the car is further down his list, with time and effort better spent on educational goals.",
-    "date": "2025-07-11",
+    "date": "2025-08-29",
     "extra_context": "He owns a 1986 Z31 Nissan 300ZX, mechanically solid but dinged up and depreciated, needing a body rebuild. He has new educational and investment goals.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -153,7 +153,7 @@
     "question_id": "q054",
     "prompt": "I'm 27, debt-free, and aiming for $10 million. I make $80k as a truck driver, investing 15%. Should I stick to retirement investing, pursue real estate/single stocks, or change careers to hit my goal?",
     "main_answer": "Continue investing in retirement and use cash for everything. Once he has a paid-for house, he can **save cash for real estate investing**. He should also **consider pursuing a career he loves**, like financial master coach training, potentially as a side hustle alongside trucking.",
-    "date": "2025-07-12",
+    "date": "2025-08-30",
     "extra_context": "He is out of debt and in baby steps 4 and 6. His goal is a deca-millionaire for lifestyle, including a dream car and house. He's working with an investment pro.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -168,7 +168,7 @@
     "question_id": "q055",
     "prompt": "I have a 30-year mortgage (3.2%) and a car payment, with $3M net worth and $350k income. I reinvested what I would have paid on a 15-year mortgage. Should I pay off my house now?",
     "main_answer": "**Stroke that check and pay off the house today**. While he has proven it's possible to build wealth with debt, it always works until it doesn't. The hosts believe \"the borrower is slave to the lender,\" which changes value systems and decision-making.",
-    "date": "2025-07-13",
+    "date": "2025-08-31",
     "extra_context": "He is 48, retired from his first career with a guaranteed pension, and has another job making over $100k. He started investing at 16, diligently for 30 years.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -183,7 +183,7 @@
     "question_id": "q056",
     "prompt": "I'm a surgeon, earning $280k-$500k. My actor boyfriend worked 2 days last year, making $23k. He expects me to pay the mortgage on a house in my name. Is this a deal breaker?",
     "main_answer": "**Yes, it is a deal breaker, and she already knows it**. This situation will lead to increasing resentment and bitterness. It's not about the money he makes, but his **lack of work ethic and initiative**, which indicates his level of pursuit in life generally.",
-    "date": "2025-07-14",
+    "date": "2025-09-01",
     "extra_context": "She imagined a partnership, not being the sole provider. He gets by on residuals but clearly is an 'unmotivated slug.' She doesn't have kids.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -198,7 +198,7 @@
     "question_id": "q057",
     "prompt": "I'm 21, with a vision disability, want to open a non-profit drop-in center. I found a $40k building needing $90k in repairs. Should I finance this to speed up my timeline, given my limited future work ability?",
     "main_answer": "**No, absolutely not**. **Do not take on debt**. He should **rent a building** that suffices to operate and get his operation up and running, without getting into the real estate business yet. He also needs to **focus on either dogs or kids, not both**, to succeed in business.",
-    "date": "2025-07-15",
+    "date": "2025-09-02",
     "extra_context": "He has connections to local organizations and believes his town has bursaries/grants for non-profits once the building is set up. The potential cost is $90k for repairs.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -213,7 +213,7 @@
     "question_id": "q058",
     "prompt": "I'm a software developer, laid off in March, earning $80k. My wife's businesses aren't enough, and our monthly expenses are $3k. I need creative solutions to stay afloat while I search for a new job. What should I do?",
     "main_answer": "He **needs to go to work now**, even if it's not in his field, like laboring on a construction crew to make $18-$20/hour to meet the $3k baseline. He should **cut all non-essential expenses** like eating out and subscriptions, and **reshop insurance**. He should also read \"The Proximity Principle\".",
-    "date": "2025-07-16",
+    "date": "2025-09-03",
     "extra_context": "He received a month of severance. He's trying to build his resume with training and certifications. His average monthly expenses without luxuries are $3000.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -228,7 +228,7 @@
     "question_id": "q059",
     "prompt": "I use credit cards for rewards, seeing it as revenge for past interest and fees. If I collect more in rewards than I paid in interest, I'd be ahead. What do you think of this mindset?",
     "main_answer": "The hosts **do not like this mindset**. Studies show people spend 12-18% more with credit cards, so he's getting rewards for spending more money. Using cash or a debit card means he saves the amount he would have gotten in rewards, or more.",
-    "date": "2025-07-17",
+    "date": "2025-09-04",
     "extra_context": "He claims to have paid $5000 in interest historically and believes he can 'make up' for it with rewards. Only 28% of Americans pay off their balance in full every month.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -243,7 +243,7 @@
     "question_id": "q060",
     "prompt": "My husband and I paid off $55k on our mortgage, $131k left, $185k income. We want to pay it off ASAP but also save for a roof, car, and \"have a life.\" How should we approach the mortgage payoff?",
     "main_answer": "After baby step 3, they can **take their foot off the gas pedal** slightly, funding retirement, kids' college, and then throwing extra at the mortgage. They should **look ahead and find a realistic date to be completely debt-free** that allows for enjoying life and saving for future needs.",
-    "date": "2025-07-18",
+    "date": "2025-09-05",
     "extra_context": "They just merged bank accounts and she stopped using credit cards. They refinanced to an 8-year mortgage and could pay it off by end of 2024 by doubling down.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -258,7 +258,7 @@
     "question_id": "q061",
     "prompt": "My 81-year-old father has $26k credit card debt from scams. His income barely covers his mortgage, so siblings chip in. He won't sell his home. Should he declare bankruptcy, let credit cards default, or what?",
     "main_answer": "**Let the credit card debt go bad and then settle it for a quarter on the dollar before they take a lien on his house**. The financially \"right thing to do\" is to **sell the house**. If they insist on keeping the house, the siblings **must have a written agreement to recoup their contributions** and the $10k settlement money from the house equity.",
-    "date": "2025-07-19",
+    "date": "2025-09-06",
     "extra_context": "His car is only worth about $1k. There are three siblings, but only two are financially stable and chipping in. He is susceptible to scams but not in dementia.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -273,7 +273,7 @@
     "question_id": "q062",
     "prompt": "I'm debt-free, investing 15% of my $130k income, and renting. I have $100-$120k cash (plus $20k emergency fund). My boyfriend and I are looking to buy a house in 3 years. What should I do with this money?",
     "main_answer": "**Keep the $100-$120k in a high-yield savings account** because the time horizon for a home purchase is within two to three years, and you don't want the money locked up in the stock market if it's down. She should **not involve her boyfriend in her financial decisions or put his name on the deed/mortgage if they are not married**, due to lack of legal protections.",
-    "date": "2025-07-20",
+    "date": "2025-09-07",
     "extra_context": "Her boyfriend is currently speaking into her money decisions, which the host advises against. She drives a 2010 Honda Civic with 60k miles and has no issues.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -288,7 +288,7 @@
     "question_id": "q063",
     "prompt": "I'm 60, retiring at 62. I have a paid-off home ($300k), and another ($800k) with $170k debt (2.75%). I have $400k cash and save 30% of income. Should I pay off the debt now or stick to my 4-year plan and invest the cash?",
     "main_answer": "**Pay off that mortgage today**. Burn the mortgage. You will not regret it. The \"sole tax on your amygdala\" (stress) is not worth the slight interest gain. Having no debt provides immense peace and options. He will still have $230k left and can continue to invest his high income into retirement.",
-    "date": "2025-07-21",
+    "date": "2025-09-08",
     "extra_context": "His household income is $280k. He has $1.3M in retirement funds and pensions. He plans to live in the second home after retirement and sell the primary home.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -303,7 +303,7 @@
     "question_id": "q064",
     "prompt": "My wife and I are university students. Canadian student loans have no interest until 6 months post-graduation. We're considering taking $60k in loans, investing it at 5.5%, then paying it off. Is this a good idea?",
     "main_answer": "**No, this plan is not good**. It misses the key component of **risk**. Bonds can go down in value when interest rates go up. It's also trying to make money doing nothing, and is at minimum **unethical/immoral misuse of funds** intended for education.",
-    "date": "2025-07-22",
+    "date": "2025-09-09",
     "extra_context": "He is studying finance and hasn't had a statistics class yet. The potential gain is only $3,000. He is considering a Bachelor of Commerce, majoring in finance.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -318,7 +318,7 @@
     "question_id": "q065",
     "prompt": "My girlfriend has $21k credit card debt. A company offered a $16.4k payment plan over 48 months. Is this like bankruptcy? We want to get married; I work full-time, she's a teacher with a daughter. How can we pay this off faster?",
     "main_answer": "**Stay away from debt relief companies**. They destroy credit. Instead, they should **work extra and pay it off fast**. Get on a **detailed, tight budget (beans and rice, no eating out, no vacations)**. His girlfriend should consider **tutoring** (30-$50/hour) as a side hustle for more income.",
-    "date": "2025-07-23",
+    "date": "2025-09-10",
     "extra_context": "His girlfriend makes $55k/year. They are not married and should keep finances separate until then. He works max legal hours.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -333,7 +333,7 @@
     "question_id": "q066",
     "prompt": "I'm 30, making $200k. I owe $255k on my house and $50k on my truck. I max my 401k and invest in Robinhood. With $20k cash, should I prioritize stock market investing or pay off my truck and home first?",
     "main_answer": "He should **follow the Ramsey plan and get rid of the vehicle ASAP**. He can **cash out his Robinhood account ($15k) and use his cash on hand ($20k)** to get the loan down to $15k, which he can pay off within 90 days. After the vehicle loan, **throw any extra money at the mortgage**.",
-    "date": "2025-07-24",
+    "date": "2025-09-11",
     "extra_context": "He has $15k in a Robinhood account and $20k cash on hand. His salary is $200k. He wants to know the best way to handle investments vs. debt payoff.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -348,7 +348,7 @@
     "question_id": "q067",
     "prompt": "Six years ago, my parents took out student loans for me with no repayment agreement. Now they're blaming me for their financial woes and demand I take over. They rejected family counseling. Am I wrong?",
     "main_answer": "**He is not in the wrong**. His parents' actions are \"gross\" and \"warped\" manipulation. He is **not the solution to their financial mess** and has no legal responsibility to pay the loans back. He needs to establish **clear, high, concrete boundaries**.",
-    "date": "2025-07-25",
+    "date": "2025-09-12",
     "extra_context": "His parents are likely hurting and desperate. Their relationship has been transactional, focusing on what they did for him and what he owes them.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -363,7 +363,7 @@
     "question_id": "q068",
     "prompt": "I'm financially stable: paid-off house, $350k net worth, $200k emergency fund, 15% retirement invested. Should I save for a future family (\"extra rainy day\") or boost my own standard of living?",
     "main_answer": "He has **way beyond a 6-month emergency fund**, and it's time to **upgrade some things in his life reasonably** (paying cash). He is \"the eternal saver\" and has \"plenty\" of money for a future family. He should **get out, meet people, and find a nice lady**.",
-    "date": "2025-07-26",
+    "date": "2025-09-13",
     "extra_context": "He is single, with a paid-off house, $350k net worth, and $200k in a high-yield savings account as an emergency fund.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -378,7 +378,7 @@
     "question_id": "q069",
     "prompt": "A talk radio host questioned your financial planning because you don't focus on end-times prophecy. How do you view Bible prophecy, given it suggests life will continue as usual?",
     "main_answer": "No man will know the time or the hour. Historically, many intelligent people have predicted the end times and been wrong every time. He advises against changing one's financial plan based on predictions, as it's \"thin ice\". He suggests to **act like you're gonna live** and **invest in such a way as if things go wrong sometimes**.",
-    "date": "2025-07-27",
+    "date": "2025-09-14",
     "extra_context": "The host explains different theological views on tribulation. He emphasizes that predictability is impossible and that focusing on responsible stewardship is key.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -393,7 +393,7 @@
     "question_id": "q070",
     "prompt": "I'm 20, struggling with school costs. My savings are drained and I took a $5k private loan. I feel debt is inevitable. How can I avoid more loans and continue school with no money?",
     "main_answer": "**Give herself grace**. First, **talk to her financial aid office** to ask about extra funding, discounts, scholarships, and on-campus jobs. Second, **work intensely, like 40 hours a week**, sacrificing social life temporarily. Look for **jobs off-campus that pay more** or offer **tuition benefit programs**. Be open to **transferring to a cheaper state school** if her current one is unaffordable, as prestige doesn't guarantee success.",
-    "date": "2025-07-28",
+    "date": "2025-09-15",
     "extra_context": "She is interested in budgeting despite feeling she's not good at it. Her current college might cost $60k/year. She needs to make 'strategic' job choices.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -408,7 +408,7 @@
     "question_id": "q071",
     "prompt": "My family of six lives in a paid-off 2-bedroom trailer. We own an investment farmhouse next door ($60k debt, needs $50k renovation). We have $40k savings, $110k income. Should we move into the farmhouse and renovate ourselves, sell it, or rent it?",
     "main_answer": "**Sell the current paid-off single-wide trailer** ($120k). Use that money to **pay off the $60k debt on the farmhouse**, leaving $60k profit. Combine this with the $40k savings for a total of $100k cash. Then, **cash-flow the renovations** on the farmhouse. She should **hire a contractor** as they don't know what they're doing.",
-    "date": "2025-07-29",
+    "date": "2025-09-16",
     "extra_context": "The farmhouse is on 6 acres next to their current property. It's an old farmhouse needing doors and closets, but has 'good bones.' They are 'very attached' to the property.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -423,7 +423,7 @@
     "question_id": "q072",
     "prompt": "I'm 24, quit my $150k job due to values, now freelance making $50k-$60k with $250k saved. Should I continue freelancing or get a steady job? I also have a $15k car loan, interest lower than my money market. Should I pay it off?",
     "main_answer": "**Embrace what's scary and grow the business**. He should **consider hiring help or finding a business consultant** for aspects he's not good at, like books. **Do not touch the $250k emergency fund for \"dilly dallying\"**. He should **pay off the $15k car loan today**. While the interest rate is lower than his money market, he's missing the calculation of **car depreciation**, so he's not winning by keeping the loan.",
-    "date": "2025-07-30",
+    "date": "2025-09-17",
     "extra_context": "He lives with his girlfriend and plans to get married in 1-2 years. He believes his car loan interest is lower than his money market interest.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -438,7 +438,7 @@
     "question_id": "q073",
     "prompt": "I'm finishing my bachelor's, planning an MBA. My girlfriend is pursuing an 8-year vet degree, anticipating $200k-$250k debt for a $114k average income. How can we minimize this debt, or is it a good idea? I'm waiting for her to 'grow' before marriage. We live together for financial reasons. What should I do?",
     "main_answer": "For vet school: **choose a less expensive school**, talk to **local veterinarians for scholarships or work agreements**, and explore **pharmaceutical providers for scholarships**. She needs to **define her dream as an adult**. Regarding the relationship: **Living together is strongly advised against** as it creates an unhealthy dynamic where he views himself as \"big papa\".",
-    "date": "2025-07-31",
+    "date": "2025-09-18",
     "extra_context": "He wants the marriage to succeed and they've had 'ups and downs.' He views himself as 'big papa' taking care of her financially.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -453,7 +453,7 @@
     "question_id": "q074",
     "prompt": "My call center job has constant errors, poor training, and unsupportive managers, hurting performance. My suggestions are ignored, and coworkers are annoyed. Am I just complaining, are they complacent, and do I have to put up with this?",
     "main_answer": "All of his observations can be true: he's right that it should be better, and his coworkers might be complacent and annoyed. However, he has \"hit his lid\" at this call center, which is not a long-term gig for most people. He should **move on and search for a better job** with more pay and a better culture, as his skills will transfer to great customer-facing roles.",
-    "date": "2025-08-01",
+    "date": "2025-09-19",
     "extra_context": "He feels ignored due to not having a college degree. Call centers are typically chaotic with high turnover and not long-term gigs.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -468,7 +468,7 @@
     "question_id": "q075",
     "prompt": "I'm 60, retiring at 62, with a paid-off primary home and a second home with a $200k mortgage. I have $230k cash, $280k income, and $1.3M in retirement. Should I use cash to pay off the mortgage now (pausing retirement savings to rebuild liquid), or sell my primary home at retirement to pay it off?",
     "main_answer": "**Pay off the $200k mortgage on the vacation home today**. He will still have $30k left in liquid cash, and his high income will allow him to **continue funneling money into retirement** (including catch-up contributions) without pausing. When he retires at 62, he can **sell the primary home for a large sum of liquid cash** ($550k+).",
-    "date": "2025-08-02",
+    "date": "2025-09-20",
     "extra_context": "He worries about liquid cash for benefits until age 65. The mortgage interest rate is 2.75%. He is in great financial shape with millions in the bank.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -483,7 +483,7 @@
     "question_id": "q076",
     "prompt": "I'm 35, married with four kids, and paid cash for my $928k house. I own six rental properties with $1.2M debt, and make $80k/year. Should I pay down these rental mortgages or invest for retirement?",
     "main_answer": "**Do both**. Tenants don't \"technically pay for anything\" as debt equals risk. He should **invest 15% of his $80k income into retirement accounts**. With any extra cash, he should **start working to pay off the rental property mortgages**, not just sitting there paying minimum payments. He could **sell two or three of his least favorite properties** (those with less future appreciation) to pay off the others. Then, he should **snowball the remaining rental debts (smallest to largest)**, throwing everything at them.",
-    "date": "2025-08-03",
+    "date": "2025-09-21",
     "extra_context": "He has a net worth in excess of $1 million. He acquired his wealth by paying off his first house, selling it, and then paying cash for his current home.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -498,7 +498,7 @@
     "question_id": "q077",
     "prompt": "I inherited two houses (grandmother's: paid, 6 hrs away, $125k assessed; dad's: $92k owed, 1 hr away, $250k assessed). I also have my own home ($246k owed) and $40k consumer debt, plus $55k savings. Should I sell both inherited houses, or sell one and rent the other?",
     "main_answer": "**Pay off her $40k consumer debt today** using her savings. She should **sell both inherited homes**. She should **not be a long-distance landlord** (grandmother's house). Selling both homes, combined with her savings, could allow her to **pay off her current mortgage and consumer debt, making her completely debt-free with no payments in the world**.",
-    "date": "2025-08-04",
+    "date": "2025-09-22",
     "extra_context": "Her grandmother's house is vacant as her grandmother moved to a nursing home. She has sentimental feelings towards the inherited homes but is overwhelmed by managing them.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -513,7 +513,7 @@
     "question_id": "q078",
     "prompt": "My wife, baby, and I are in baby step 3, building our emergency fund. We want to buy a house cash by 2030, saving $5k/month. How should we structure baby step 4 to achieve this goal without borrowing?",
     "main_answer": "While commendable to want to pay cash, 5 years is a long time, and property values could double. A different option: **save $5k/month for one or two years (e.g., $120k down payment)**. Then, **get a 15-year fixed-rate mortgage with a payment no more than 25% of take-home pay, and aggressively pay it down**. This locks in the home value and payment.",
-    "date": "2025-08-05",
+    "date": "2025-09-23",
     "extra_context": "He is an entrepreneur with ability to increase income. They are currently in a 2-bedroom apartment. He has a strong conviction against debt.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -528,7 +528,7 @@
     "question_id": "q079",
     "prompt": "I have $9k savings and $4k credit card, $26k student loan, $22k car debt. Can I pay off the credit card with savings, or should I save for an emergency fund? My income increases soon.",
     "main_answer": "He is \"in an emergency\" due to his debt. He should **immediately apply all savings over $1,000 to the credit card debt**. This means keeping only a $1,000 emergency fund for now, which might scare him (good) and motivate faster debt payoff. Then follow the **debt snowball (smallest to largest balance, ignoring interest rate)** and throw all extra income at the next debt.",
-    "date": "2025-08-06",
+    "date": "2025-09-24",
     "extra_context": "He makes $76k/year, increasing to $110k in two weeks. He is following baby steps, currently between 1 and 2, rebuilding emergency fund.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -543,7 +543,7 @@
     "question_id": "q080",
     "prompt": "My husband and I have a commercial truck business facing repossession for a $16k past-due balance on a $78k truck. My husband was injured, we lost employees, and a client didn't pay. We haven't had income in 6-8 months. What are our options to avoid repossession?",
     "main_answer": "**Try aggressively selling the truck immediately**. They should **drop the price** to make it appealing for a quick sale, even if it means taking a hit. She should consider **pausing school temporarily** and getting a job to bring in cash flow, especially since their income is low and stress is high. They could also consider **selling one of their personal vehicles** ($10k each) to keep the truck operating while trying to sell it, then buying a cheaper car later.",
-    "date": "2025-08-07",
+    "date": "2025-09-25",
     "extra_context": "They have two personal vehicles ($10k each). They tried selling but had no luck or interest. Their income has been very low for 6-8 months.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -558,7 +558,7 @@
     "question_id": "q081",
     "prompt": "I'm 72 with a $10M net worth, debt-free, mostly in real estate. I have a $133k RMD cash distribution. What should I do with it? I'm considering tax-free bonds or long-term care insurance. What are my best options?",
     "main_answer": "He **does not need long-term care insurance**; he can self-insure (estimated $200k-$300k max cost from his $10M) and will likely hire in-home private care. He **should not buy Muni Bonds** because returns \"suck\". He should **buy a more reliable and enjoyable car** (not his current $2k car). He should also **be generous and give $10k-$30k away** to a cause he cares about, enjoying the emotional benefit. Whatever is left, he should **invest in what made him money (mutual funds and real estate)**, not Muni Bonds. He should continue to invest, give, and enjoy.",
-    "date": "2025-08-08",
+    "date": "2025-09-26",
     "extra_context": "He became a $10M millionaire in 10 years. He currently drives a $2k car and is happy with it. The RMD is a required minimum distribution.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
@@ -573,7 +573,7 @@
     "question_id": "q082",
     "prompt": "I'm 34, a father of one with another on the way, 100% debt-free with $60k for a down payment and a $30k emergency fund. I want to move from California to Utah, buy a house, but the market scares me. Is it simple to buy a house there?",
     "main_answer": "**Yes, it is as simple as that.** He can do it. He **should not move until the baby comes**. After the baby, he can **move to Utah and rent for a year** to get to know the area and navigate the craziness of a newborn. During that year, he can then buy a house. This assumes he has a job lined up in Utah.",
-    "date": "2025-08-09",
+    "date": "2025-09-27",
     "extra_context": "His wife is 21 weeks pregnant. He considers himself not great with money, but the host refutes this due to his debt-free status and savings.",
     "scoring_criteria": {
       "5": "Ideal response with strong reasoning and alignment to Ramsey principles.",
